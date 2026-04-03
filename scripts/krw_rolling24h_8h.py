@@ -7,8 +7,7 @@ KRW Rolling 24h Dashboard Pipeline (8h snapshots)
 - Exchanges: Upbit, Bithumb, Coinone
 - Outputs:
   out/history/
-    ├─ krw_24h_latest.json
-    └─ krw_24h_snapshots.json
+    └─ krw_24h_latest.json
 
 Notes:
 - Exchange APIs typically provide rolling 24h traded value, not discrete 8h volume.
@@ -33,10 +32,7 @@ DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 LATEST_JSON = DATA_DIR / "krw_24h_latest.json"
-SNAPSHOTS_JSON = DATA_DIR / "krw_24h_snapshots.json"
 
-# Keep last N snapshots to avoid file bloat (3/day -> 270 ~= 90 days)
-MAX_SNAPSHOTS = 270
 
 # -------------------------
 # API Endpoints
@@ -261,20 +257,7 @@ def run():
         "upbit_gainers": upbit_gainers,
     }
 
-    # Append to snapshots history
-    history = safe_read_json(SNAPSHOTS_JSON)
-    if not isinstance(history, list):
-        history = []
-
-    # Dedupe if same timestamp exists
-    history = [x for x in history if x.get("timestamp_kst") != ts_iso]
-    history.append(latest)
-
-    # Keep last N
-    history = history[-MAX_SNAPSHOTS:]
-
     write_json(LATEST_JSON, latest)
-    write_json(SNAPSHOTS_JSON, history)
 
     print("[OK] Rolling 24h snapshot saved with Stablecoin data")
     print(f"     Stable Dom: {stable_info['stable_dominance_pct']:.1f}%")

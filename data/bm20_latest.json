@@ -1,20 +1,20 @@
 {
   "asOf": "2026-04-03",
-  "bm20Level": 557.147326,
+  "bm20Level": 572.394847,
   "bm20PrevLevel": 569.247888,
-  "bm20PointChange": -12.100562,
-  "bm20ChangePct": -0.02125710453340468,
+  "bm20PointChange": 3.146959,
+  "bm20ChangePct": 0.00552827441096615,
   "returns": {
-    "1D": -0.02125710453340468
+    "1D": 0.00552827441096615
   },
   "breadth": {
-    "up": 4,
-    "down": 16
+    "up": 16,
+    "down": 4
   },
-  "kimchi_premium_pct": 0.7276427331502427,
+  "kimchi_premium_pct": 0.4944372599426571,
   "kimchi_meta": {
-    "usdkrw": 1505.68,
-    "btc_krw": 101096000.0,
-    "btc_usd": 66658.05
+    "usdkrw": 1507.48,
+    "btc_krw": 101610000.0,
+    "btc_usd": 67072.25
   }
 }

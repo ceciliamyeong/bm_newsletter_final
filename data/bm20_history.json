@@ -890,15 +890,15 @@
     "fx_source": "open.er-api.com"
   },
   {
-    "timestamp": "2026-04-03T15:12:07+09:00",
+    "timestamp": "2026-04-03T17:02:21+09:00",
     "sentiment": {
       "value": 9,
       "status": "Extreme Fear"
     },
     "k_market": {
-      "global_vol_usd": 83818436324.76,
-      "krw_vol_usd": 1542742769.59,
-      "k_share_percent": 1.84,
+      "global_vol_usd": 82906758889.29,
+      "krw_vol_usd": 1514779289.41,
+      "k_share_percent": 1.83,
       "global_volume_field": "total_volume_24h"
     },
     "usdkrw": 1512.550826,

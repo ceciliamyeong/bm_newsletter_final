@@ -300,19 +300,9 @@ def main():
     }
     append_json_list(DATA / "bm20_history.json", new_entry, date_key="timestamp")
 
-    # ---- XRP 저장 ----
-    latest_path = DATA / "k_xrp_share_24h_latest.json"
-    with open(latest_path, "w", encoding="utf-8") as f:
-        json.dump({**xrp_market, "fx_source": fx_source}, f, indent=2, ensure_ascii=False)
-
-    append_json_list(
-        DATA / "k_xrp_share_24h_history.json",
-        {**xrp_market, "fx_source": fx_source},
-        date_key="as_of"
-    )
 
     print(f"[FINAL] BM20 업데이트 완료 - K-Share: {k_market['k_share_percent']}%")
-    print(f"[FINAL] XRP 저장 완료 - K-XRP Share(24H): {xrp_market['k_xrp_share_pct_24h']}%")
+
     print(f"[INFO] USDKRW={usdkrw} ({fx_source})")
 
 
