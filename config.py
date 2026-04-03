@@ -30,3 +30,7 @@ STIBEE_FROM_NAME = os.environ.get("STIBEE_FROM_NAME", "블록미디어")
 # ── WordPress ────────────────────────────────────────
 WP_BASE_URL = os.environ.get("WP_BASE_URL", "https://blockmedia.co.kr")
 WP_NEWSLETTER_TAG_ID = int(os.environ.get("NEWSLETTER_TAG_ID", "28978"))
+
+# ── Newsletter delivery API ──────────────────────────
+HTM_API_URL = os.environ.get("HTM_API_URL", "")
+HTM_API_KEY = os.environ.get("HTM_API_KEY", "")

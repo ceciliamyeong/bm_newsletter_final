@@ -39,6 +39,9 @@ PIPELINE = [
 
     # Step 6: Render (depends on all above)
     (6, "render_letter.py",     "Generate letter.html"),
+
+    # Step 7: Deliver (depends on step 6)
+    (7, "deliver_letter.py",    "Upload letter.html to WordPress"),
 ]
 
 
