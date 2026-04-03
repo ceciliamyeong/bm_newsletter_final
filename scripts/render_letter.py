@@ -36,6 +36,9 @@ import pandas as pd
 import requests
 from datetime import datetime, timezone, timedelta
 import config
+from logger import get_logger
+
+log = get_logger("render")
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -52,13 +55,6 @@ ETF_JSON          = DATA / "etf_summary.json"  # optional
 
 NEWS_ONELINER_TXT = DATA / "news_one_liner.txt"
 NEWS_ONELINER_NOTE_TXT = DATA / "news_one_liner_note.txt"
-
-# WordPress settings
-WP_BASE_URL                 = config.WP_BASE_URL + "/wp-json/wp/v2"
-WP_TAG_NEWSLETTER           = "뉴스레터"
-WP_TAG_NEWSLETTER_LEAD      = "뉴스레터-리드"
-WP_TAG_ID_NEWSLETTER        = config.WP_NEWSLETTER_TAG_ID
-WP_TAG_ID_NEWSLETTER_LEAD   = 80405
 
 OUT = ROOT / "output" / "letter.html"
 
@@ -117,10 +113,10 @@ def load_ticker_from_csv() -> dict[str, str]:
             result[f"TICKER_{sym}_COLOR"] = cls
 
         result["TICKER_TIME"] = _kst_now()
-        print("INFO: Ticker from CSV (no API call)")
+        log.info("Ticker from CSV (no API call)")
         return result
     except Exception as e:
-        print(f"WARN: load ticker from CSV failed: {e}")
+        log.warning("Load ticker from CSV failed: %s", e)
         return fallback
 
 
@@ -157,7 +153,7 @@ def load_upbit_top_bottom_from_file(n: int = 3) -> dict[str, str]:
             result[f"UPBIT_BOT{i}_CHG"] = f"{g['change_pct']:.1f}%"
         FB.update(result)
     except Exception as e:
-        print(f"WARN: load upbit top/bottom from file failed: {e}")
+        log.warning("Load upbit top/bottom from file failed: %s", e)
     return FB
 
 
@@ -192,7 +188,7 @@ def fetch_exchange_vol_top3() -> dict[str, str]:
                 result[f"{prefix}_VOL{i}_AMT"] = fmt_vol_krw(val)
         FB.update(result)
     except Exception as e:
-        print(f"WARN: exchange vol top3 failed: {e}")
+        log.warning("Exchange vol top3 failed: %s", e)
     return FB
 
 
@@ -209,7 +205,7 @@ def fetch_premium_data(usdkrw: float | None) -> dict[str, str]:
         fx = usdkrw if (usdkrw and usdkrw > 100) else 1510.0
 
         if not upbit_btc_krw or not cg_usd:
-            print("WARN: Premium: btc_krw/btc_usd missing in bm20_latest.json")
+            log.warning("Premium: btc_krw/btc_usd missing in bm20_latest.json")
             return FB
 
         upbit_btc_krw = float(upbit_btc_krw)
@@ -240,7 +236,7 @@ def fetch_premium_data(usdkrw: float | None) -> dict[str, str]:
         return {"KIMCHI_PREM_PCT": _c(kimchi_pct), "CB_PREMIUM_PCT": _c(cb_pct),
                 "PREMIUM_COMMENT": comment, "PREMIUM_ASOF": asof}
     except Exception as e:
-        print(f"WARN: Premium fetch failed: {e}")
+        log.warning("Premium fetch failed: %s", e)
         return FB
 
 
@@ -267,12 +263,12 @@ def load_etf_summary() -> dict[str, str]:
         "{{ETF_ASOF}}": "—",
     }
     if not ETF_JSON.exists():
-        print(f"WARN: ETF json not found: {ETF_JSON}")
+        log.warning("ETF json not found: %s", ETF_JSON)
         return FB
     try:
         raw = json.loads(ETF_JSON.read_text(encoding="utf-8"))
     except Exception as e:
-        print(f"WARN: ETF json parse error: {e}")
+        log.warning("ETF json parse error: %s", e)
         return FB
 
     def _fmt_usd(val, digits=0) -> str:
@@ -579,17 +575,17 @@ def fetch_aas_data() -> dict[str, str]:
             r.raise_for_status()
             data = r.json()
             used_date = date_str
-            print(f"INFO: AAS data fetched for {date_str}")
+            log.info("AAS data fetched for %s", date_str)
             break
         except Exception as e:
             errors.append((date_str, e))
 
     if data is None and errors:
         for date_str, e in errors:
-            print(f"WARN: AAS fetch failed for {date_str}: {e}")
+            log.warning("AAS fetch failed for %s: %s", date_str, e)
 
     if data is None:
-        print("WARN: AAS data unavailable for all candidate dates. Using defaults.")
+        log.warning("AAS data unavailable for all candidate dates. Using defaults.")
         ph["{{AAS_BODY}}"] = '''<tr><td style="padding:32px 24px;text-align:center;">
   <p style="font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:28px;margin:0 0 12px 0;">🔧</p>
   <p style="font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:14px;font-weight:900;color:#0d1117;margin:0 0 6px 0;">오늘의 코생지 데이터를 준비 중입니다</p>
@@ -752,10 +748,10 @@ def render() -> None:
         "{{NEWS3_CATEGORY}}", "{{NEWS3_TITLE}}", "{{NEWS3_EXCERPT}}", "{{NEWS3_LINK}}",
     }
     left = sorted(set(re.findall(r"\{\{[A-Z0-9_]+\}\}", html)) - EXTERNAL_PLACEHOLDERS)
-    if left: print("WARN: Unfilled placeholders:", left)
+    if left: log.warning("Unfilled placeholders: %s", left)
     
     OUT.write_text(html, encoding="utf-8")
-    print(f"OK: wrote {OUT}")
+    log.info("Output ready: %s", OUT)
 
 if __name__ == "__main__":
     render()

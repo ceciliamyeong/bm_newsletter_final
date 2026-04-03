@@ -9,6 +9,9 @@ import json
 from datetime import datetime, timezone, timedelta
 import xml.etree.ElementTree as ET
 import config
+from logger import get_logger
+
+log = get_logger("bm20_full")
 
 
 # ---- 환율: 실시간 우선 + 실패 시 fallback ----
@@ -63,7 +66,7 @@ def get_fear_and_greed():
         res = requests.get(url, timeout=10).json()
         return {"value": int(res['data'][0]['value']), "status": res['data'][0]['value_classification']}
     except Exception as e:
-        print(f"[DEBUG] Fear & Greed API Error: {e}")
+        log.warning("Fear & Greed API error: %s", e)
         return {"value": 5, "status": "Extreme Fear"}
 
 
@@ -72,7 +75,7 @@ def get_k_share(api_key, krw_total_24h, usdkrw):
     my_vol_usd = krw_total_24h / usdkrw if usdkrw > 0 else 0
 
     if not api_key:
-        print("[DEBUG] CMC_API_KEY missing")
+        log.warning("CMC_API_KEY missing")
         return {
             "global_vol_usd": 0,
             "krw_vol_usd": round(my_vol_usd, 2),
@@ -114,7 +117,7 @@ def get_k_share(api_key, krw_total_24h, usdkrw):
         }
 
     except Exception as e:
-        print(f"[DEBUG] CMC API parsing error: {e}")
+        log.error("CMC API parsing error: %s", e)
         return {
             "global_vol_usd": 0,
             "krw_vol_usd": round(my_vol_usd, 2),
@@ -258,7 +261,7 @@ def append_json_list(path: Path, item: dict, date_key: str = "timestamp"):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(lst, f, indent=2, ensure_ascii=False)
 
-    print(f"[OK] {path.name}: {len(lst)}개 항목 저장 (오늘={today})")
+    log.info("%s: %d entries saved (today=%s)", path.name, len(lst), today)
 
 
 def main():
@@ -275,11 +278,11 @@ def main():
             with open(latest_vol_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 krw_total_24h = data.get("totals", {}).get("combined_24h", 0)
-                print(f"[SUCCESS] 거래량 추출 성공: {krw_total_24h}")
+                log.info("KRW volume loaded: %s", f"{krw_total_24h:,.0f}")
         except Exception as e:
-            print(f"[DEBUG] File read error: {e}")
+            log.error("File read error: %s", e)
     else:
-        print("[ERROR] 파일을 찾을 수 없습니다.")
+        log.error("krw_24h_latest.json not found")
 
     sentiment = get_fear_and_greed()
     k_market = get_k_share(CMC_API_KEY, krw_total_24h, usdkrw)
@@ -301,9 +304,9 @@ def main():
     append_json_list(DATA / "bm20_history.json", new_entry, date_key="timestamp")
 
 
-    print(f"[FINAL] BM20 업데이트 완료 - K-Share: {k_market['k_share_percent']}%")
+    log.info("K-Share: %s%%", k_market["k_share_percent"])
 
-    print(f"[INFO] USDKRW={usdkrw} ({fx_source})")
+    log.info("USDKRW=%s (%s)", usdkrw, fx_source)
 
 
 if __name__ == "__main__":

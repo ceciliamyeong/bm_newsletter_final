@@ -14,6 +14,9 @@ import json
 import urllib3
 from datetime import datetime, timezone
 import config
+from logger import get_logger
+
+log = get_logger("fetch_etf")
 
 DATA = config.DATA_DIR
 
@@ -55,22 +58,20 @@ def fetch_current_metrics(etf_type: str) -> dict:
 def save_json(path: Path, data: dict):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"  [OK] saved: {path.name}")
+    log.info("Saved: %s", path.name)
 
 
 def main():
     if not config.SOSOVALUE_API_KEY:
-        print("[SKIP] SOSOVALUE_API_KEY not set, skipping ETF fetch")
+        log.warning("SOSOVALUE_API_KEY not set, skipping ETF fetch")
         return
 
     updated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    print(f"[{updated_at}] ETF data collection started")
+    log.info("ETF data collection started")
 
     all_summary = {"updatedAt": updated_at, "btc": {}, "eth": {}, "sol": {}}
 
     for coin, etf_type in ETF_TYPES.items():
-        print(f"\n--- {coin.upper()} ({etf_type}) ---")
-
         try:
             metrics = fetch_current_metrics(etf_type)
             all_summary[coin] = {
@@ -81,13 +82,14 @@ def main():
                 "totalTokenHoldings": metrics.get("totalTokenHoldings", {}).get("value"),
                 "lastUpdateDate": metrics.get("dailyNetInflow", {}).get("lastUpdateDate"),
             }
-            print(f"  AUM: ${float(metrics['totalNetAssets']['value'])/1e9:.2f}B")
-            print(f"  Daily net inflow: ${float(metrics['dailyNetInflow']['value'])/1e6:.1f}M")
+            aum = float(metrics['totalNetAssets']['value']) / 1e9
+            inflow = float(metrics['dailyNetInflow']['value']) / 1e6
+            log.info("%s: AUM $%.2fB, inflow $%.1fM", coin.upper(), aum, inflow)
         except Exception as e:
-            print(f"  ❌ metrics failed: {e}")
+            log.error("%s metrics failed: %s", coin.upper(), e)
 
     save_json(DATA / "etf_summary.json", all_summary)
-    print(f"\n[OK] Done: {updated_at}")
+    log.info("ETF data collection done")
 
 
 if __name__ == "__main__":

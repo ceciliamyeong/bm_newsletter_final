@@ -1,175 +1,175 @@
 {
   "schema": "krw_rolling24h_v1",
-  "timestamp_kst": "2026-04-03T17:02:11+0900",
-  "timestamp_label": "04/03 17:02 KST",
+  "timestamp_kst": "2026-04-03T23:22:49+0900",
+  "timestamp_label": "04/03 23:22 KST",
   "totals": {
-    "combined_24h": 2291180665403.496,
-    "upbit_24h": 1283840873933.7607,
-    "bithumb_24h": 661841583706.1836,
-    "coinone_24h": 345498207763.5517
+    "combined_24h": 2093189370302.3706,
+    "upbit_24h": 1219990021598.8337,
+    "bithumb_24h": 590632694363.3586,
+    "coinone_24h": 282566654340.1782
   },
   "stablecoins": {
-    "total_stable_vol_24h": 269701546972.82074,
-    "stable_dominance_pct": 11.771291153302572,
+    "total_stable_vol_24h": 204726603686.2622,
+    "stable_dominance_pct": 9.780605930398382,
     "by_asset": {
-      "USDC": 66061168002.16013,
-      "USDT": 203640378970.6606
+      "USDC": 53051489894.37863,
+      "USDT": 151675113791.88358
     }
   },
   "by_exchange_top": {
     "upbit_top5": [
       {
         "symbol": "KRW-XRP",
-        "value": 180232231318.29565
+        "value": 117821788526.39545
       },
       {
         "symbol": "KRW-BTC",
-        "value": 105528883356.35239
+        "value": 82687145473.93483
       },
       {
         "symbol": "KRW-ETH",
-        "value": 95112560228.58817
+        "value": 78489982437.00317
       },
       {
-        "symbol": "KRW-USDT",
-        "value": 92347746876.2921
+        "symbol": "KRW-XPL",
+        "value": 72193662545.79315
       },
       {
         "symbol": "KRW-ONT",
-        "value": 86830804257.83601
+        "value": 69811958442.14505
       }
     ],
     "bithumb_top5": [
       {
         "symbol": "KRW-USDT",
-        "value": 92243719857.00632
+        "value": 67414948758.67852
       },
       {
         "symbol": "KRW-XRP",
-        "value": 66350493137.67278
-      },
-      {
-        "symbol": "KRW-BTC",
-        "value": 42961220223.95862
-      },
-      {
-        "symbol": "KRW-ETH",
-        "value": 42702927111.926216
+        "value": 50309561766.96957
       },
       {
         "symbol": "KRW-CTSI",
-        "value": 32584622180.82545
+        "value": 47365559897.70097
+      },
+      {
+        "symbol": "KRW-ETH",
+        "value": 37433944583.729576
+      },
+      {
+        "symbol": "KRW-BTC",
+        "value": 36304912105.50043
       }
     ],
     "coinone_top5": [
       {
         "symbol": "KRW-RLUSD",
-        "value": 229781113398.648
+        "value": 183197478297.1138
       },
       {
         "symbol": "KRW-USDC",
-        "value": 64790681856.9414
+        "value": 52132435561.8162
       },
       {
         "symbol": "KRW-USDT",
-        "value": 19048912237.3622
+        "value": 20189649228.6786
       },
       {
-        "symbol": "KRW-STO",
-        "value": 7209590762.3243
+        "symbol": "KRW-BTC",
+        "value": 6262577757.7428
       },
       {
-        "symbol": "KRW-XRP",
-        "value": 6075901603.0991
+        "symbol": "KRW-RIVER",
+        "value": 4237737016.112
       }
     ]
   },
   "top10": {
-    "top10_total_24h": 1307101857815.9526,
-    "rest_total_24h": 984078807587.5435,
-    "top10_share_pct": 57.049270603274806,
+    "top10_total_24h": 1106173008061.0957,
+    "rest_total_24h": 987016362241.2749,
+    "top10_share_pct": 52.846293973932426,
     "coins": [
       {
-        "symbol": "KRW-XRP",
-        "value": 252658626059.06754,
-        "share_pct": 11.027442308421028
+        "symbol": "KRW-RLUSD",
+        "value": 183197478297.1138,
+        "share_pct": 8.752073792093167
       },
       {
-        "symbol": "KRW-RLUSD",
-        "value": 229781113398.648,
-        "share_pct": 10.028939091024567
+        "symbol": "KRW-XRP",
+        "value": 172167772247.6484,
+        "share_pct": 8.225140767974471
       },
       {
         "symbol": "KRW-USDT",
-        "value": 203640378970.6606,
-        "share_pct": 8.888010537344416
+        "value": 151675113791.88358,
+        "share_pct": 7.246124786596514
       },
       {
         "symbol": "KRW-BTC",
-        "value": 152187579035.6466,
-        "share_pct": 6.642321198570568
+        "value": 125254635337.17805,
+        "share_pct": 5.983913214650257
       },
       {
         "symbol": "KRW-ETH",
-        "value": 140944413572.5659,
-        "share_pct": 6.1516062744770235
-      },
-      {
-        "symbol": "KRW-ONT",
-        "value": 96517121345.35138,
-        "share_pct": 4.212549573359546
+        "value": 118411214418.64445,
+        "share_pct": 5.6569757184243405
       },
       {
         "symbol": "KRW-XPL",
-        "value": 68308608094.09436,
-        "share_pct": 2.981371531522794
+        "value": 81516634797.56387,
+        "share_pct": 3.8943745823526914
       },
       {
-        "symbol": "KRW-USDC",
-        "value": 66061168002.16013,
-        "share_pct": 2.8832806159581574
+        "symbol": "KRW-ONT",
+        "value": 76855125945.3126,
+        "share_pct": 3.671675722976299
       },
       {
-        "symbol": "KRW-SOL",
-        "value": 50216414278.36901,
-        "share_pct": 2.191726520593935
+        "symbol": "KRW-ONG",
+        "value": 75891566395.47086,
+        "share_pct": 3.625642642381085
       },
       {
-        "symbol": "KRW-DRIFT",
-        "value": 46786435059.38914,
-        "share_pct": 2.0420229520027684
+        "symbol": "KRW-GAS",
+        "value": 63868597424.19132,
+        "share_pct": 3.0512574891857596
+      },
+      {
+        "symbol": "KRW-EDGE",
+        "value": 57334869406.088806,
+        "share_pct": 2.7391152572978394
       }
     ]
   },
   "upbit_gainers": [
     {
       "symbol": "ONG",
-      "change_pct": 37.62,
+      "change_pct": 45.54,
       "side": "top"
     },
     {
       "symbol": "EDGE",
-      "change_pct": 18.12,
+      "change_pct": 26.17,
       "side": "top"
     },
     {
-      "symbol": "CFG",
-      "change_pct": 12.95,
+      "symbol": "ALGO",
+      "change_pct": 13.66,
       "side": "top"
     },
     {
       "symbol": "ZBT",
-      "change_pct": -8.07,
+      "change_pct": -6.83,
       "side": "bottom"
     },
     {
-      "symbol": "DKA",
-      "change_pct": -5.23,
+      "symbol": "ONT",
+      "change_pct": -6.06,
       "side": "bottom"
     },
     {
       "symbol": "SENT",
-      "change_pct": -3.76,
+      "change_pct": -6.02,
       "side": "bottom"
     }
   ]

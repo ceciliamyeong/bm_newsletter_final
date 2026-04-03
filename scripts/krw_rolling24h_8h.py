@@ -14,13 +14,19 @@ Notes:
 - Therefore, snapshots overlap. That is intended for "current market board" view.
 """
 
+import sys
 import json
 import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Tuple
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import requests
+from logger import get_logger
+
+log = get_logger("krw_volume")
 
 # -------------------------
 # Time / Paths
@@ -259,10 +265,8 @@ def run():
 
     write_json(LATEST_JSON, latest)
 
-    print("[OK] Rolling 24h snapshot saved with Stablecoin data")
-    print(f"     Stable Dom: {stable_info['stable_dominance_pct']:.1f}%")
-    print(f"     {ts_label} | total={combined_total:,.0f} | top10_share={top10_share:.1f}%")
-    print(f"     upbit={up_total:,.0f} bithumb={bt_total:,.0f} coinone={co_total:,.0f}")
+    log.info("KRW 24h snapshot saved: total=%s top10=%.1f%% stable=%.1f%%",
+             f"{combined_total:,.0f}", top10_share, stable_info['stable_dominance_pct'])
 
 if __name__ == "__main__":
     run()

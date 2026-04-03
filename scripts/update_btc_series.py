@@ -9,6 +9,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import json
 import pandas as pd
 import config
+from logger import get_logger
+
+log = get_logger("btc_series")
 
 DATA = config.DATA_DIR
 BM20_JSON = DATA / "bm20_latest.json"
@@ -47,7 +50,7 @@ def update():
         series.append({"date": asof, "price": btc_price})
 
     BTC_SERIES.write_text(json.dumps(series, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[OK] BTC series updated: {asof} ${btc_price:,.2f}")
+    log.info("BTC series updated: %s $%s", asof, f"{btc_price:,.2f}")
 
 if __name__ == "__main__":
     update()

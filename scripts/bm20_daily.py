@@ -28,6 +28,9 @@ import requests
 import pandas as pd
 import yfinance as yf
 import config
+from logger import get_logger
+
+log = get_logger("bm20_daily")
 
 # ── Paths ──────────────────────────────────────────────
 DATA = config.DATA_DIR
@@ -154,7 +157,7 @@ def fetch_yf_prices(ids: list[str]) -> pd.DataFrame:
     close = close.ffill().dropna(how="all")
 
     if close.shape[0] < 2:
-        print(f"[WARN] yfinance close rows={close.shape[0]} (1D change may be 0%)")
+        log.warning("yfinance close rows=%d (1D change may be 0%%)", close.shape[0])
 
     last = close.iloc[-1]
     prev = close.iloc[-2] if close.shape[0] >= 2 else close.iloc[-1]
@@ -342,11 +345,11 @@ def _to_ratio(x):
 
 # ── Main ───────────────────────────────────────────────
 def main():
-    print(f"[INFO] BM20 Daily: {YMD}")
+    log.info("BM20 Daily: %s", YMD)
 
     # 1) Fetch prices
     df = fetch_yf_prices(BM20_IDS)
-    print(f"[OK] Prices fetched: {len(df)} coins")
+    log.info("Prices fetched: %d coins", len(df))
 
     # 2) Weights
     weights_map = compute_weights(df["id"].tolist())
@@ -388,18 +391,18 @@ def main():
             bm20_prev_level = last_level
             bm20_now = last_level * (1.0 + port_ret_1d) if denom_ok else last_level
             rows_ssot.append({"date": YMD, "level": float(bm20_now)})
-        print(f"[OK] BM20 level from SSOT ({ssot_src})")
+        log.info("BM20 level from SSOT: %s", ssot_src)
     else:
         # Fallback: simple weighted average ratio
         BASE_INDEX_START = 100.0
         bm20_now = today_value
         bm20_prev_level = prev_value
-        print("[WARN] No SSOT found, using raw weighted average as level")
+        log.warning("No SSOT found, using raw weighted average as level")
 
     # 5) Kimchi premium
     kimchi_pct, kp_meta = get_kimchi()
     usdkrw = kp_meta.get("usdkrw", 1510.0) if kp_meta else 1510.0
-    print(f"[OK] Kimchi premium: {fmt_pct(kimchi_pct)}")
+    log.info("Kimchi premium: %s", fmt_pct(kimchi_pct))
 
     # 6) Returns
     bm20ChangePct = None
@@ -429,22 +432,22 @@ def main():
     }
 
     write_json(LATEST_JSON, latest_obj)
-    print(f"[OK] Written: {LATEST_JSON.name}")
+    log.info("Written: %s", LATEST_JSON.name)
 
     # 8) Update bm20_series.json (SSOT)
     if rows_ssot:
         SERIES_JSON = DATA / "bm20_series.json"
         write_json(SERIES_JSON, rows_ssot)
-        print(f"[OK] Written: {SERIES_JSON.name} ({len(rows_ssot)} entries)")
+        log.info("Written: %s (%d entries)", SERIES_JSON.name, len(rows_ssot))
 
     # 9) Write CSV
     df_out = df[["sym", "id", "current_price", "previous_price", "price_change_pct", "weight_ratio", "contribution"]]
     df_out = df_out.rename(columns={"sym": "symbol"})
     df_out.to_csv(DAILY_CSV, index=False, encoding="utf-8")
-    print(f"[OK] Written: {DAILY_CSV.name}")
+    log.info("Written: %s", DAILY_CSV.name)
 
     # 10) Summary
-    print(f"[FINAL] BM20 Level: {bm20_now:.2f} | 1D: {fmt_pct(bm20ChangePct * 100 if bm20ChangePct else 0)} | Kimchi: {fmt_pct(kimchi_pct)}")
+    log.info("BM20 Level: %.2f | 1D: %s | Kimchi: %s", bm20_now, fmt_pct(bm20ChangePct * 100 if bm20ChangePct else 0), fmt_pct(kimchi_pct))
 
 
 if __name__ == "__main__":

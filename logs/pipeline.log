@@ -1,0 +1,40 @@
+2026-04-03 23:25:56 [INFO] [pipeline] Pipeline started (from step 5)
+2026-04-03 23:25:56 [INFO] [pipeline] Step 5: BTC price series [update_btc_series.py]
+2026-04-03 23:25:56 [INFO] [btc_series] BTC series updated: 2026-04-03 $66,755.30
+2026-04-03 23:25:56 [INFO] [pipeline] Step 5: OK (0.5s)
+2026-04-03 23:25:56 [INFO] [pipeline] Step 6: Generate letter.html [render_letter.py]
+2026-04-03 23:25:58 [INFO] [render] AAS data fetched for 2026-04-02
+2026-04-03 23:25:58 [INFO] [render] Ticker from CSV (no API call)
+2026-04-03 23:25:58 [INFO] [render] Output ready: C:\Users\tiale\Box Sync\Работа\BLOCKMEDIA\9. DEVELOPMENT\2026.02.10 - Newsletter\Cecilia Github\bm_newsletter_server\output\letter.html
+2026-04-03 23:25:58 [INFO] [pipeline] Step 6: OK (1.7s)
+2026-04-03 23:25:58 [INFO] [pipeline] Step 7: Upload letter.html to WordPress [deliver_letter.py]
+2026-04-03 23:25:58 [INFO] [deliver] Uploading letter.html (169.1 KB) to https://www.blockmedia.co.kr/wp-json/htm/v1/upload
+2026-04-03 23:25:59 [ERROR] [deliver] Attempt 1/3 failed: 404 Client Error: Not Found for url: https://www.blockmedia.co.kr/wp-json/htm/v1/upload
+2026-04-03 23:25:59 [INFO] [deliver] Retrying in 5s...
+2026-04-03 23:26:04 [ERROR] [deliver] Attempt 2/3 failed: 404 Client Error: Not Found for url: https://www.blockmedia.co.kr/wp-json/htm/v1/upload
+2026-04-03 23:26:04 [INFO] [deliver] Retrying in 5s...
+2026-04-03 23:26:10 [ERROR] [deliver] Attempt 3/3 failed: 404 Client Error: Not Found for url: https://www.blockmedia.co.kr/wp-json/htm/v1/upload
+2026-04-03 23:26:10 [ERROR] [deliver] All 3 attempts failed
+2026-04-03 23:26:10 [INFO] [pipeline] Step 7: OK (11.9s)
+2026-04-03 23:26:10 [INFO] [pipeline]   Step 5: [OK] update_btc_series.py
+2026-04-03 23:26:10 [INFO] [pipeline]   Step 6: [OK] render_letter.py
+2026-04-03 23:26:10 [INFO] [pipeline]   Step 7: [OK] deliver_letter.py
+2026-04-03 23:26:10 [INFO] [pipeline] Pipeline finished: all steps passed (14.1s)
+2026-04-03 23:27:59 [INFO] [pipeline] Pipeline started (from step 6)
+2026-04-03 23:27:59 [INFO] [pipeline] Step 6: Generate letter.html [render_letter.py]
+2026-04-03 23:28:00 [INFO] [render] AAS data fetched for 2026-04-02
+2026-04-03 23:28:00 [INFO] [render] Ticker from CSV (no API call)
+2026-04-03 23:28:00 [INFO] [render] Output ready: C:\Users\tiale\Box Sync\Работа\BLOCKMEDIA\9. DEVELOPMENT\2026.02.10 - Newsletter\Cecilia Github\bm_newsletter_server\output\letter.html
+2026-04-03 23:28:00 [INFO] [pipeline] Step 6: OK (1.5s)
+2026-04-03 23:28:00 [INFO] [pipeline] Step 7: Upload letter.html to WordPress [deliver_letter.py]
+2026-04-03 23:28:00 [INFO] [deliver] Uploading letter.html (169.1 KB) to https://www.blockmedia.co.kr/wp-json/htm/v1/upload
+2026-04-03 23:28:01 [ERROR] [deliver] Attempt 1/3 failed: 404 Client Error: Not Found for url: https://www.blockmedia.co.kr/wp-json/htm/v1/upload
+2026-04-03 23:28:01 [INFO] [deliver] Retrying in 5s...
+2026-04-03 23:28:06 [ERROR] [deliver] Attempt 2/3 failed: 404 Client Error: Not Found for url: https://www.blockmedia.co.kr/wp-json/htm/v1/upload
+2026-04-03 23:28:06 [INFO] [deliver] Retrying in 5s...
+2026-04-03 23:28:12 [ERROR] [deliver] Attempt 3/3 failed: 404 Client Error: Not Found for url: https://www.blockmedia.co.kr/wp-json/htm/v1/upload
+2026-04-03 23:28:12 [ERROR] [deliver] All 3 attempts failed
+2026-04-03 23:28:12 [ERROR] [pipeline] Step 7: FAIL exit=120 (11.9s)
+2026-04-03 23:28:12 [INFO] [pipeline]   Step 6: [OK] render_letter.py
+2026-04-03 23:28:12 [INFO] [pipeline]   Step 7: [FAIL] deliver_letter.py
+2026-04-03 23:28:12 [ERROR] [pipeline] Pipeline finished: 1 step(s) failed (13.5s)
