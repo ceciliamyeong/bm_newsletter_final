@@ -1,0 +1,176 @@
+{
+  "schema": "krw_rolling24h_v1",
+  "timestamp_kst": "2026-04-03T15:11:57+0900",
+  "timestamp_label": "04/03 15:11 KST",
+  "totals": {
+    "combined_24h": 2333476850456.3506,
+    "upbit_24h": 1309509449491.5217,
+    "bithumb_24h": 677902203261.2048,
+    "coinone_24h": 346065197703.6242
+  },
+  "stablecoins": {
+    "total_stable_vol_24h": 282356520985.458,
+    "stable_dominance_pct": 12.100249502378327,
+    "by_asset": {
+      "USDC": 65761451374.25909,
+      "USDT": 216595069611.19894
+    }
+  },
+  "by_exchange_top": {
+    "upbit_top5": [
+      {
+        "symbol": "KRW-XRP",
+        "value": 178443141096.83344
+      },
+      {
+        "symbol": "KRW-BTC",
+        "value": 108185016491.93227
+      },
+      {
+        "symbol": "KRW-ONT",
+        "value": 99013355894.92288
+      },
+      {
+        "symbol": "KRW-USDT",
+        "value": 97814517649.01521
+      },
+      {
+        "symbol": "KRW-ETH",
+        "value": 97457537465.96465
+      }
+    ],
+    "bithumb_top5": [
+      {
+        "symbol": "KRW-USDT",
+        "value": 99199323570.12044
+      },
+      {
+        "symbol": "KRW-XRP",
+        "value": 65745025637.07263
+      },
+      {
+        "symbol": "KRW-ETH",
+        "value": 44246336503.03517
+      },
+      {
+        "symbol": "KRW-BTC",
+        "value": 43043563694.39727
+      },
+      {
+        "symbol": "KRW-CTSI",
+        "value": 31140559294.5386
+      }
+    ],
+    "coinone_top5": [
+      {
+        "symbol": "KRW-RLUSD",
+        "value": 229783247206.4641
+      },
+      {
+        "symbol": "KRW-USDC",
+        "value": 64426087113.2743
+      },
+      {
+        "symbol": "KRW-USDT",
+        "value": 19581228392.0633
+      },
+      {
+        "symbol": "KRW-STO",
+        "value": 7575074245.9635
+      },
+      {
+        "symbol": "KRW-XRP",
+        "value": 6029595185.5982
+      }
+    ]
+  },
+  "top10": {
+    "top10_total_24h": 1350994429335.7512,
+    "rest_total_24h": 982482421120.5994,
+    "top10_share_pct": 57.89620021606563,
+    "coins": [
+      {
+        "symbol": "KRW-XRP",
+        "value": 250217761919.50427,
+        "share_pct": 10.722958827321127
+      },
+      {
+        "symbol": "KRW-RLUSD",
+        "value": 229783247206.4641,
+        "share_pct": 9.847247773704124
+      },
+      {
+        "symbol": "KRW-USDT",
+        "value": 216595069611.19894,
+        "share_pct": 9.28207492475617
+      },
+      {
+        "symbol": "KRW-BTC",
+        "value": 154847788528.36542,
+        "share_pct": 6.635925635948878
+      },
+      {
+        "symbol": "KRW-ETH",
+        "value": 144961021142.28333,
+        "share_pct": 6.212233093888794
+      },
+      {
+        "symbol": "KRW-ONT",
+        "value": 110655365805.13986,
+        "share_pct": 4.742081147430254
+      },
+      {
+        "symbol": "KRW-XPL",
+        "value": 65828662478.20999,
+        "share_pct": 2.8210548763462593
+      },
+      {
+        "symbol": "KRW-USDC",
+        "value": 65761451374.25909,
+        "share_pct": 2.8181745776221576
+      },
+      {
+        "symbol": "KRW-DRIFT",
+        "value": 62069020394.51915,
+        "share_pct": 2.659937268389035
+      },
+      {
+        "symbol": "KRW-SOL",
+        "value": 50275040875.80695,
+        "share_pct": 2.1545120906588306
+      }
+    ]
+  },
+  "upbit_gainers": [
+    {
+      "symbol": "ONG",
+      "change_pct": 34.65,
+      "side": "top"
+    },
+    {
+      "symbol": "EDGE",
+      "change_pct": 18.79,
+      "side": "top"
+    },
+    {
+      "symbol": "ALGO",
+      "change_pct": 12.42,
+      "side": "top"
+    },
+    {
+      "symbol": "ZBT",
+      "change_pct": -6.83,
+      "side": "bottom"
+    },
+    {
+      "symbol": "DKA",
+      "change_pct": -6.48,
+      "side": "bottom"
+    },
+    {
+      "symbol": "LA",
+      "change_pct": -3.47,
+      "side": "bottom"
+    }
+  ]
+}

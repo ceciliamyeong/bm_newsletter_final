@@ -1,0 +1,1146 @@
+[
+  {
+    "as_of": "2026-02-17T12:38:43+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1442.723237,
+    "korea": {
+      "upbit_krw_24h": 272800334632.55,
+      "bithumb_krw_24h": 137380709466.76,
+      "coinone_krw_24h": 7034726221.42,
+      "total_krw_24h": 417215770320.73,
+      "total_usd_24h": 289186283.01
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2414916879.72
+    },
+    "k_xrp_share_pct_24h": 11.975,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-17T23:46:21+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1442.723237,
+    "korea": {
+      "upbit_krw_24h": 262582723274.71,
+      "bithumb_krw_24h": 138955982941.81,
+      "coinone_krw_24h": 6748201070.01,
+      "total_krw_24h": 408286907286.53,
+      "total_usd_24h": 282997387.73
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2374285438.61
+    },
+    "k_xrp_share_pct_24h": 11.9193,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-18T23:46:37+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1443.649595,
+    "korea": {
+      "upbit_krw_24h": 244664518705.54,
+      "bithumb_krw_24h": 109811855162.03,
+      "coinone_krw_24h": 7007386175.54,
+      "total_krw_24h": 361483760043.11,
+      "total_usd_24h": 250395775.61
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2134559543.84
+    },
+    "k_xrp_share_pct_24h": 11.7306,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-19T23:46:58+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1447.313125,
+    "korea": {
+      "upbit_krw_24h": 260787749633.91,
+      "bithumb_krw_24h": 124305665599.06,
+      "coinone_krw_24h": 7722222650.6,
+      "total_krw_24h": 392815637883.57,
+      "total_usd_24h": 271410264.37
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2344612613.23
+    },
+    "k_xrp_share_pct_24h": 11.5759,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-20T23:45:13+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1449.405058,
+    "korea": {
+      "upbit_krw_24h": 267137758317.26,
+      "bithumb_krw_24h": 123988335550.39,
+      "coinone_krw_24h": 7533109640.91,
+      "total_krw_24h": 398659203508.55,
+      "total_usd_24h": 275050236.17
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2658197961.26
+    },
+    "k_xrp_share_pct_24h": 10.3472,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-21T23:40:12+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1447.738325,
+    "korea": {
+      "upbit_krw_24h": 153738002775.01,
+      "bithumb_krw_24h": 77902120462.83,
+      "coinone_krw_24h": 4236653271.34,
+      "total_krw_24h": 235876776509.18,
+      "total_usd_24h": 162927769.77
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1405829355.72
+    },
+    "k_xrp_share_pct_24h": 11.5894,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-22T23:42:23+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1447.954091,
+    "korea": {
+      "upbit_krw_24h": 158849732741.38,
+      "bithumb_krw_24h": 80773293818.26,
+      "coinone_krw_24h": 4454445472.02,
+      "total_krw_24h": 244077472031.65,
+      "total_usd_24h": 168567134.52
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1404225066.73
+    },
+    "k_xrp_share_pct_24h": 12.0043,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-23T23:48:27+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1447.06912,
+    "korea": {
+      "upbit_krw_24h": 409192602080.36,
+      "bithumb_krw_24h": 190171556091.44,
+      "coinone_krw_24h": 12959310818.26,
+      "total_krw_24h": 612323468990.06,
+      "total_usd_24h": 423147353.87
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 3515731535.7
+    },
+    "k_xrp_share_pct_24h": 12.0358,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-24T23:47:59+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1443.824633,
+    "korea": {
+      "upbit_krw_24h": 326794122804.15,
+      "bithumb_krw_24h": 141125334049.97,
+      "coinone_krw_24h": 9876257127.97,
+      "total_krw_24h": 477795713982.09,
+      "total_usd_24h": 330923647.55
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2798586642.91
+    },
+    "k_xrp_share_pct_24h": 11.8247,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-25T08:48:28+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1442.396605,
+    "korea": {
+      "upbit_krw_24h": 318868029622.32,
+      "bithumb_krw_24h": 144212561239.53,
+      "coinone_krw_24h": 9722808417.89,
+      "total_krw_24h": 472803399279.74,
+      "total_usd_24h": 327790149.84
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2872647123.48
+    },
+    "k_xrp_share_pct_24h": 11.4107,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-25T23:45:36+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1442.396605,
+    "korea": {
+      "upbit_krw_24h": 494281293253.09,
+      "bithumb_krw_24h": 225623411106.54,
+      "coinone_krw_24h": 14929054711.06,
+      "total_krw_24h": 734833759070.69,
+      "total_usd_24h": 509453333.79
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 4332030945.02
+    },
+    "k_xrp_share_pct_24h": 11.7601,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-02-26T23:46:28+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1427.259947,
+    "korea": {
+      "upbit_krw_24h": 311181067641.97,
+      "bithumb_krw_24h": 151761717433.85,
+      "coinone_krw_24h": 9192198982.62,
+      "total_krw_24h": 472134984058.45,
+      "total_usd_24h": 330798173.84
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 3360611221.76
+    },
+    "k_xrp_share_pct_24h": 9.8434,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-04T06:50:51+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1477.311478,
+    "korea": {
+      "upbit_krw_24h": 279450287943.87,
+      "bithumb_krw_24h": 115436834886.62,
+      "coinone_krw_24h": 8743334597.39,
+      "total_krw_24h": 403630457427.88,
+      "total_usd_24h": 273219604.29
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2760250197.74
+    },
+    "k_xrp_share_pct_24h": 9.8984,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-04T08:42:03+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1477.311478,
+    "korea": {
+      "upbit_krw_24h": 285139278560.01,
+      "bithumb_krw_24h": 118172842751.26,
+      "coinone_krw_24h": 8980908115.74,
+      "total_krw_24h": 412293029427.01,
+      "total_usd_24h": 279083345.37
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2826235092.45
+    },
+    "k_xrp_share_pct_24h": 9.8747,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-04T20:34:57+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1477.311478,
+    "korea": {
+      "upbit_krw_24h": 469003513478.17,
+      "bithumb_krw_24h": 194709435330.63,
+      "coinone_krw_24h": 14468007080.28,
+      "total_krw_24h": 678180955889.08,
+      "total_usd_24h": 459064297.54
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 4170943689.67
+    },
+    "k_xrp_share_pct_24h": 11.0062,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-05T05:56:52+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1464.350327,
+    "korea": {
+      "upbit_krw_24h": 506474955596.01,
+      "bithumb_krw_24h": 204014963796.22,
+      "coinone_krw_24h": 15131096967.33,
+      "total_krw_24h": 725621016359.56,
+      "total_usd_24h": 495524194.57
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 4412437707.79
+    },
+    "k_xrp_share_pct_24h": 11.2302,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-05T08:47:17+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1464.350327,
+    "korea": {
+      "upbit_krw_24h": 494703406063.73,
+      "bithumb_krw_24h": 199956337178.07,
+      "coinone_krw_24h": 14588847321.96,
+      "total_krw_24h": 709248590563.76,
+      "total_usd_24h": 484343519.09
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 4305023226.32
+    },
+    "k_xrp_share_pct_24h": 11.2507,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-05T20:40:04+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1464.350327,
+    "korea": {
+      "upbit_krw_24h": 315055990172.51,
+      "bithumb_krw_24h": 125557738824.08,
+      "coinone_krw_24h": 8644399359.87,
+      "total_krw_24h": 449258128356.46,
+      "total_usd_24h": 306796891.48
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2928599831.67
+    },
+    "k_xrp_share_pct_24h": 10.4759,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-06T08:41:17+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1476.828513,
+    "korea": {
+      "upbit_krw_24h": 235894291146.58,
+      "bithumb_krw_24h": 99892950680.3,
+      "coinone_krw_24h": 6501710135.54,
+      "total_krw_24h": 342288951962.41,
+      "total_usd_24h": 231772984.44
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2456267127.77
+    },
+    "k_xrp_share_pct_24h": 9.436,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-06T20:35:09+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1476.828513,
+    "korea": {
+      "upbit_krw_24h": 209868538989.03,
+      "bithumb_krw_24h": 88173947606.0,
+      "coinone_krw_24h": 7227705812.3,
+      "total_krw_24h": 305270192407.33,
+      "total_usd_24h": 206706594.38
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2370799850.27
+    },
+    "k_xrp_share_pct_24h": 8.7189,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-07T08:34:54+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1483.739519,
+    "korea": {
+      "upbit_krw_24h": 174997412239.89,
+      "bithumb_krw_24h": 79806969780.7,
+      "coinone_krw_24h": 6280379528.1,
+      "total_krw_24h": 261084761548.69,
+      "total_usd_24h": 175964014.04
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2141228953.2
+    },
+    "k_xrp_share_pct_24h": 8.2179,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-07T20:28:50+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1483.739519,
+    "korea": {
+      "upbit_krw_24h": 90941810827.26,
+      "bithumb_krw_24h": 45134255151.81,
+      "coinone_krw_24h": 3406885797.76,
+      "total_krw_24h": 139482951776.84,
+      "total_usd_24h": 94007708.22
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1222600130.32
+    },
+    "k_xrp_share_pct_24h": 7.6892,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-08T08:34:47+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1483.374038,
+    "korea": {
+      "upbit_krw_24h": 107862129330.35,
+      "bithumb_krw_24h": 45027792566.7,
+      "coinone_krw_24h": 3612745922.42,
+      "total_krw_24h": 156502667819.47,
+      "total_usd_24h": 105504521.32
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1227037067.61
+    },
+    "k_xrp_share_pct_24h": 8.5983,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-08T20:17:59+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1483.374038,
+    "korea": {
+      "upbit_krw_24h": 136700712394.73,
+      "bithumb_krw_24h": 56918529220.3,
+      "coinone_krw_24h": 3927115501.57,
+      "total_krw_24h": 197546357116.6,
+      "total_usd_24h": 133173664.94
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1415816877.09
+    },
+    "k_xrp_share_pct_24h": 9.4061,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-09T01:13:20+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1483.802714,
+    "korea": {
+      "upbit_krw_24h": 181540192996.69,
+      "bithumb_krw_24h": 73809187378.19,
+      "coinone_krw_24h": 5274570636.52,
+      "total_krw_24h": 260623951011.39,
+      "total_usd_24h": 175645959.23
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1742495017.57
+    },
+    "k_xrp_share_pct_24h": 10.0801,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-09T20:25:55+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1483.802714,
+    "korea": {
+      "upbit_krw_24h": 243688768794.87,
+      "bithumb_krw_24h": 99916559656.29,
+      "coinone_krw_24h": 7313164069.1,
+      "total_krw_24h": 350918492520.26,
+      "total_usd_24h": 236499427.59
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2624502196.96
+    },
+    "k_xrp_share_pct_24h": 9.0112,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-10T08:46:50+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1477.004645,
+    "korea": {
+      "upbit_krw_24h": 215709436892.89,
+      "bithumb_krw_24h": 92861304515.61,
+      "coinone_krw_24h": 7401283463.35,
+      "total_krw_24h": 315972024871.85,
+      "total_usd_24h": 213927576.97
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2413191673.41
+    },
+    "k_xrp_share_pct_24h": 8.8649,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-10T20:25:51+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1477.004645,
+    "korea": {
+      "upbit_krw_24h": 326504031174.49,
+      "bithumb_krw_24h": 130295781044.02,
+      "coinone_krw_24h": 10193847990.36,
+      "total_krw_24h": 466993660208.87,
+      "total_usd_24h": 316176162.2
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 3323973727.37
+    },
+    "k_xrp_share_pct_24h": 9.512,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-11T20:27:31+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1472.817041,
+    "korea": {
+      "upbit_krw_24h": 188036592284.88,
+      "bithumb_krw_24h": 81874696098.07,
+      "coinone_krw_24h": 6740957334.86,
+      "total_krw_24h": 276652245717.81,
+      "total_usd_24h": 187838840.82
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2414392100.75
+    },
+    "k_xrp_share_pct_24h": 7.78,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-12T20:27:02+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1475.661968,
+    "korea": {
+      "upbit_krw_24h": 134717799735.7,
+      "bithumb_krw_24h": 56245510298.61,
+      "coinone_krw_24h": 7221388016.54,
+      "total_krw_24h": 198184698050.85,
+      "total_usd_24h": 134302233.4
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1931326051.78
+    },
+    "k_xrp_share_pct_24h": 6.9539,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-13T20:26:27+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1484.646873,
+    "korea": {
+      "upbit_krw_24h": 373883944716.36,
+      "bithumb_krw_24h": 147036733423.39,
+      "coinone_krw_24h": 14737536146.33,
+      "total_krw_24h": 535658214286.08,
+      "total_usd_24h": 360798398.61
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 3675463234.99
+    },
+    "k_xrp_share_pct_24h": 9.8164,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-14T20:19:51+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1496.539707,
+    "korea": {
+      "upbit_krw_24h": 101417103204.45,
+      "bithumb_krw_24h": 33304194232.84,
+      "coinone_krw_24h": 3421888184.04,
+      "total_krw_24h": 138143185621.33,
+      "total_usd_24h": 92308399.82
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1272775838.61
+    },
+    "k_xrp_share_pct_24h": 7.2525,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-15T20:20:41+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1495.240466,
+    "korea": {
+      "upbit_krw_24h": 134832121337.64,
+      "bithumb_krw_24h": 50152296009.49,
+      "coinone_krw_24h": 4858402264.94,
+      "total_krw_24h": 189842819612.07,
+      "total_usd_24h": 126964741.74
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1550985485.35
+    },
+    "k_xrp_share_pct_24h": 8.1861,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-16T20:31:13+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1497.48103,
+    "korea": {
+      "upbit_krw_24h": 433169135028.37,
+      "bithumb_krw_24h": 177256841837.07,
+      "coinone_krw_24h": 11436871649.96,
+      "total_krw_24h": 621862848515.4,
+      "total_usd_24h": 415272605.17
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 4319163676.36
+    },
+    "k_xrp_share_pct_24h": 9.6147,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-17T20:31:50+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1491.163045,
+    "korea": {
+      "upbit_krw_24h": 627524849794.92,
+      "bithumb_krw_24h": 212380055889.6,
+      "coinone_krw_24h": 16586140827.2,
+      "total_krw_24h": 856491046511.72,
+      "total_usd_24h": 574377865.24
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 4928667690.21
+    },
+    "k_xrp_share_pct_24h": 11.6538,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-18T20:29:08+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1487.64229,
+    "korea": {
+      "upbit_krw_24h": 330774564652.13,
+      "bithumb_krw_24h": 128409251394.69,
+      "coinone_krw_24h": 10361951066.7,
+      "total_krw_24h": 469545767113.52,
+      "total_usd_24h": 315630827.57
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 3005804831.02
+    },
+    "k_xrp_share_pct_24h": 10.5007,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-19T20:29:19+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1499.114265,
+    "korea": {
+      "upbit_krw_24h": 231184708836.56,
+      "bithumb_krw_24h": 75432406075.92,
+      "coinone_krw_24h": 6228382455.56,
+      "total_krw_24h": 312845497368.04,
+      "total_usd_24h": 208686892.44
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2580784599.68
+    },
+    "k_xrp_share_pct_24h": 8.0862,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-20T20:24:09+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1493.868581,
+    "korea": {
+      "upbit_krw_24h": 148642148358.59,
+      "bithumb_krw_24h": 55279586176.98,
+      "coinone_krw_24h": 5579787436.89,
+      "total_krw_24h": 209501521972.47,
+      "total_usd_24h": 140240931.92
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1901705008.98
+    },
+    "k_xrp_share_pct_24h": 7.3745,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-21T20:18:05+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1501.075332,
+    "korea": {
+      "upbit_krw_24h": 81265016435.83,
+      "bithumb_krw_24h": 29506996485.49,
+      "coinone_krw_24h": 2259310038.77,
+      "total_krw_24h": 113031322960.1,
+      "total_usd_24h": 75300233.47
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1049773877.82
+    },
+    "k_xrp_share_pct_24h": 7.173,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-22T20:18:38+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1500.843018,
+    "korea": {
+      "upbit_krw_24h": 183242660313.57,
+      "bithumb_krw_24h": 62886639238.33,
+      "coinone_krw_24h": 0.0,
+      "total_krw_24h": 246129299551.9,
+      "total_usd_24h": 163994033.09
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1682304136.64
+    },
+    "k_xrp_share_pct_24h": 9.7482,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-23T20:31:34+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1501.222192,
+    "korea": {
+      "upbit_krw_24h": 361787156084.82,
+      "bithumb_krw_24h": 134167762937.92,
+      "coinone_krw_24h": 10959943302.01,
+      "total_krw_24h": 506914862324.75,
+      "total_usd_24h": 337668111.37
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 3500385868.2
+    },
+    "k_xrp_share_pct_24h": 9.6466,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-24T20:34:34+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1488.075435,
+    "korea": {
+      "upbit_krw_24h": 176693005663.1,
+      "bithumb_krw_24h": 63665083091.58,
+      "coinone_krw_24h": 5435721603.73,
+      "total_krw_24h": 245793810358.42,
+      "total_usd_24h": 165175638.67
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2045053010.69
+    },
+    "k_xrp_share_pct_24h": 8.0768,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-25T20:32:06+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1497.971258,
+    "korea": {
+      "upbit_krw_24h": 161675165622.63,
+      "bithumb_krw_24h": 67627451648.79,
+      "coinone_krw_24h": 5348837880.04,
+      "total_krw_24h": 234651455151.46,
+      "total_usd_24h": 156646166.54
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2059713102.81
+    },
+    "k_xrp_share_pct_24h": 7.6052,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-26T20:29:33+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1501.658187,
+    "korea": {
+      "upbit_krw_24h": 162975463372.28,
+      "bithumb_krw_24h": 60566189164.93,
+      "coinone_krw_24h": 6420520255.24,
+      "total_krw_24h": 229962172792.45,
+      "total_usd_24h": 153138826.65
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2202354688.6
+    },
+    "k_xrp_share_pct_24h": 6.9534,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-27T20:30:30+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1506.82883,
+    "korea": {
+      "upbit_krw_24h": 145868003610.02,
+      "bithumb_krw_24h": 61716448268.12,
+      "coinone_krw_24h": 6099191131.77,
+      "total_krw_24h": 213683643009.92,
+      "total_usd_24h": 141810163.67
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2459937675.5
+    },
+    "k_xrp_share_pct_24h": 5.7648,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-28T20:21:38+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1509.015426,
+    "korea": {
+      "upbit_krw_24h": 88992490491.11,
+      "bithumb_krw_24h": 35215532383.62,
+      "coinone_krw_24h": 3487592148.61,
+      "total_krw_24h": 127695615023.34,
+      "total_usd_24h": 84621808.91
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1166975664.34
+    },
+    "k_xrp_share_pct_24h": 7.2514,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-29T23:57:46+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1508.638028,
+    "korea": {
+      "upbit_krw_24h": 102618400766.35,
+      "bithumb_krw_24h": 21455810260.36,
+      "coinone_krw_24h": 3799010788.75,
+      "total_krw_24h": 127873221815.46,
+      "total_usd_24h": 84760704.32
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1202835705.99
+    },
+    "k_xrp_share_pct_24h": 7.0467,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-30T20:37:39+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1509.519768,
+    "korea": {
+      "upbit_krw_24h": 178782446143.56,
+      "bithumb_krw_24h": 59777613408.27,
+      "coinone_krw_24h": 6568711567.55,
+      "total_krw_24h": 245128771119.38,
+      "total_usd_24h": 162388579.68
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2078869695.08
+    },
+    "k_xrp_share_pct_24h": 7.8114,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-03-31T20:36:15+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1516.151895,
+    "korea": {
+      "upbit_krw_24h": 164677509970.75,
+      "bithumb_krw_24h": 58425528871.45,
+      "coinone_krw_24h": 6428719566.43,
+      "total_krw_24h": 229531758408.62,
+      "total_usd_24h": 151391004.53
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2043363395.43
+    },
+    "k_xrp_share_pct_24h": 7.4089,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-04-01T20:37:27+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1516.970704,
+    "korea": {
+      "upbit_krw_24h": 122512697791.93,
+      "bithumb_krw_24h": 50672809349.26,
+      "coinone_krw_24h": 4384376709.93,
+      "total_krw_24h": 177569883851.11,
+      "total_usd_24h": 117055578.85
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 1799038239.25
+    },
+    "k_xrp_share_pct_24h": 6.5066,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-04-02T20:28:18+00:00",
+    "symbol": "XRP",
+    "usdkrw": 1510.452079,
+    "korea": {
+      "upbit_krw_24h": 240621197659.08,
+      "bithumb_krw_24h": 81046602641.97,
+      "coinone_krw_24h": 8105607486.72,
+      "total_krw_24h": 329773407787.77,
+      "total_usd_24h": 218327620.17
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2415843878.96
+    },
+    "k_xrp_share_pct_24h": 9.0373,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  },
+  {
+    "as_of": "2026-04-03T15:12:07+09:00",
+    "symbol": "XRP",
+    "usdkrw": 1512.550826,
+    "korea": {
+      "upbit_krw_24h": 178442144782.88,
+      "bithumb_krw_24h": 65753025637.07,
+      "coinone_krw_24h": 6014118384.34,
+      "total_krw_24h": 250209288804.3,
+      "total_usd_24h": 165422070.12
+    },
+    "global": {
+      "cmc_xrp_volume_usd_24h": 2087295775.61
+    },
+    "k_xrp_share_pct_24h": 7.9252,
+    "errors": [],
+    "notes": [
+      "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+      "Global: CMC XRP volume_24h (USD)"
+    ],
+    "fx_source": "open.er-api.com"
+  }
+]

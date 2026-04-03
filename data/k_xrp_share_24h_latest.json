@@ -1,0 +1,22 @@
+{
+  "as_of": "2026-04-03T15:12:07+09:00",
+  "symbol": "XRP",
+  "usdkrw": 1512.550826,
+  "korea": {
+    "upbit_krw_24h": 178442144782.88,
+    "bithumb_krw_24h": 65753025637.07,
+    "coinone_krw_24h": 6014118384.34,
+    "total_krw_24h": 250209288804.3,
+    "total_usd_24h": 165422070.12
+  },
+  "global": {
+    "cmc_xrp_volume_usd_24h": 2087295775.61
+  },
+  "k_xrp_share_pct_24h": 7.9252,
+  "errors": [],
+  "notes": [
+    "Korea: Upbit+Bithumb+Coinone XRP/KRW spot traded value(24h) converted to USD",
+    "Global: CMC XRP volume_24h (USD)"
+  ],
+  "fx_source": "open.er-api.com"
+}

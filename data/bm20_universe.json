@@ -1,0 +1,86 @@
+{
+  "asOf": "2026-03-27",
+  "source": "bm20_daily_data_latest.csv",
+  "components": [
+    {
+      "symbol": "BTC",
+      "weight": 0.3
+    },
+    {
+      "symbol": "ETH",
+      "weight": 0.2
+    },
+    {
+      "symbol": "XRP",
+      "weight": 0.05
+    },
+    {
+      "symbol": "USDT",
+      "weight": 0.05
+    },
+    {
+      "symbol": "BNB",
+      "weight": 0.05
+    },
+    {
+      "symbol": "HBAR",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "LTC",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "USDC",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "HYPE",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "DOGE",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "SOL",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "BCH",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "XLM",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "SUI",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "LINK",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "ADA",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "TON",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "AVAX",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "TRX",
+      "weight": 0.023333333333333324
+    },
+    {
+      "symbol": "SHIB",
+      "weight": 0.023333333333333324
+    }
+  ]
+}

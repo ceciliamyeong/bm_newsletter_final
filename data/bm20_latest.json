@@ -1,0 +1,20 @@
+{
+  "asOf": "2026-04-03",
+  "bm20Level": 557.147326,
+  "bm20PrevLevel": 569.247888,
+  "bm20PointChange": -12.100562,
+  "bm20ChangePct": -0.02125710453340468,
+  "returns": {
+    "1D": -0.02125710453340468
+  },
+  "breadth": {
+    "up": 4,
+    "down": 16
+  },
+  "kimchi_premium_pct": 0.7276427331502427,
+  "kimchi_meta": {
+    "usdkrw": 1505.68,
+    "btc_krw": 101096000.0,
+    "btc_usd": 66658.05
+  }
+}
