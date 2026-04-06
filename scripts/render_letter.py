@@ -195,7 +195,7 @@ def fetch_exchange_vol_top3() -> dict[str, str]:
 def fetch_premium_data(usdkrw: float | None) -> dict[str, str]:
     """Kimchi premium vs Coinbase premium. Reads Upbit/BTC prices from bm20_latest.json, only Coinbase is live."""
     FB = {"KIMCHI_PREM_PCT": "—", "CB_PREMIUM_PCT": "—",
-          "PREMIUM_COMMENT": "프리미엄 데이터를 가져올 수 없습니다.", "PREMIUM_ASOF": "—"}
+          "PREMIUM_COMMENT": "프리미엄 데이터를 가져올 수 없습니다."}
     try:
         # Read pre-fetched prices from bm20_latest.json (no Upbit/yfinance API calls)
         bm20 = load_json_optional(BM20_JSON)
@@ -230,11 +230,8 @@ def fetch_premium_data(usdkrw: float | None) -> dict[str, str]:
         else:
             comment = f"김치 {kimchi_pct:+.2f}% / 코인베이스 {cb_pct:+.2f}% — 중립 구간."
 
-        kst_now = datetime.now(timezone(timedelta(hours=9)))
-        asof = f"{kst_now.month}월 {kst_now.day}일 {'오전' if kst_now.hour < 12 else '오후'} {kst_now.hour if kst_now.hour <= 12 else kst_now.hour - 12}시 {kst_now.minute:02d}분 기준"
-
         return {"KIMCHI_PREM_PCT": _c(kimchi_pct), "CB_PREMIUM_PCT": _c(cb_pct),
-                "PREMIUM_COMMENT": comment, "PREMIUM_ASOF": asof}
+                "PREMIUM_COMMENT": comment}
     except Exception as e:
         log.warning("Premium fetch failed: %s", e)
         return FB
@@ -715,7 +712,7 @@ def build_placeholders() -> dict[str, str]:
         "{{UPBIT_SHARE_24H}}": fmt_share_pct(upbit_share) if upbit_share else "—",
         "{{BITHUMB_SHARE_24H}}": fmt_share_pct(bith_share) if bith_share else "—",
         "{{COINONE_SHARE_24H}}": fmt_share_pct(coin_share) if coin_share else "—",
-        "{{LETTER_DATE}}": datetime.now(timezone(timedelta(hours=9))).strftime("%Y-%m-%d"),
+        "{{LETTER_DATETIME}}": (lambda t: f"{t.year}년 {t.month}월 {t.day}일, {t.strftime('%H:%M')}")(datetime.now(timezone(timedelta(hours=9)))),
 
     }
 
