@@ -486,12 +486,13 @@ def _aas_bar_html(onchain: float, social: float, momentum: float) -> str:
     for pct, color in segs:
         if pct <= 0:
             continue
+        label = f"{pct}%" if pct >= 4 else ""
         tds += (
             f'<td width="{pct}%" style="background-color:{color};height:28px;'
             f"font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',"
             f"'Noto Sans KR','Malgun Gothic',Arial,sans-serif;"
             f'font-size:9px;font-weight:bold;'
-            f'color:#fff;text-align:center;vertical-align:middle;">{pct}%</td>'
+            f'color:#fff;text-align:center;vertical-align:middle;">{label}</td>'
         )
     return (
         '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" '
