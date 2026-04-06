@@ -26,7 +26,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import requests
 import pandas as pd
-import yfinance as yf
 import config
 from logger import get_logger
 
@@ -107,85 +106,72 @@ FIXED_WEIGHTS = {
 
 
 # ── Price fetching ─────────────────────────────────────
+YF_API_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{ticker}"
+YF_HEADERS = {"User-Agent": "BM20/1.0"}
+
+
+def _fetch_yahoo_chart(ticker: str, days: int = 2, timeout: int = 12) -> list[dict]:
+    """Fetch daily OHLC from Yahoo Finance chart API. Returns list of {date, close}."""
+    params = {"range": f"{days}d", "interval": "1d"}
+    r = requests.get(YF_API_URL.format(ticker=ticker), params=params,
+                     headers=YF_HEADERS, timeout=timeout)
+    r.raise_for_status()
+    data = r.json()
+    result = data.get("chart", {}).get("result")
+    if not result:
+        return []
+    timestamps = result[0].get("timestamp", [])
+    closes = result[0].get("indicators", {}).get("quote", [{}])[0].get("close", [])
+    rows = []
+    for ts, c in zip(timestamps, closes):
+        if c is not None:
+            d = datetime.fromtimestamp(ts, tz=timezone.utc).strftime("%Y-%m-%d")
+            rows.append({"date": d, "close": float(c)})
+    return rows
+
+
 def fetch_yf_prices(ids: list[str]) -> pd.DataFrame:
-    """Fetch current and previous day prices for all BM20 coins via yfinance."""
+    """Fetch current and previous day prices for all BM20 coins via Yahoo Finance API."""
     pairs = {cid: YF_MAP.get(cid) for cid in ids}
-    tickers = [t for t in pairs.values() if t]
+    tickers = {t: cid for cid, t in pairs.items() if t}
     if not tickers:
         raise RuntimeError("No Yahoo tickers mapped.")
 
-    end = datetime.now(timezone.utc).date()
-    start = end - timedelta(days=4)
-
-    raw = yf.download(
-        tickers=tickers, start=str(start), end=str(end + timedelta(days=1)),
-        interval="1d", auto_adjust=True, progress=False, group_by="ticker"
-    )
-
-    def pick_close(df):
-        if isinstance(df.columns, pd.MultiIndex):
-            lvl1 = set(df.columns.get_level_values(1))
-            use = "Close" if "Close" in lvl1 else ("Adj Close" if "Adj Close" in lvl1 else None)
-            return df.xs(use, axis=1, level=1) if use else pd.DataFrame()
-        else:
-            if "Close" in df.columns:
-                return df[["Close"]]
-            if "Adj Close" in df.columns:
-                return df[["Adj Close"]]
-        return pd.DataFrame()
-
-    close = pick_close(raw)
-
-    # Individual fallback if batch download fails
-    if close is None or close.empty:
-        cols = {}
-        for t in tickers:
-            h = yf.download(
-                tickers=t, start=str(start), end=str(end + timedelta(days=1)),
-                interval="1d", auto_adjust=True, progress=False
-            )
-            if h is not None and not h.empty:
-                col = "Close" if "Close" in h.columns else ("Adj Close" if "Adj Close" in h.columns else None)
-                if col:
-                    cols[t] = h[col]
-        if cols:
-            close = pd.DataFrame(cols)
-
-    if close is None or close.empty:
-        raise RuntimeError("yfinance returned empty close prices.")
-
-    close = close.ffill().dropna(how="all")
-
-    if close.shape[0] < 2:
-        log.warning("yfinance close rows=%d (1D change may be 0%%)", close.shape[0])
-
-    last = close.iloc[-1]
-    prev = close.iloc[-2] if close.shape[0] >= 2 else close.iloc[-1]
-    rev = {v: k for k, v in pairs.items() if v in last.index}
-
     rows = []
-    for tkr, cur in last.dropna().items():
-        cid = rev.get(tkr)
-        if not cid:
-            continue
-        pre = float(prev.get(tkr, cur))
-        chg24 = (float(cur) / float(pre) - 1.0) * 100.0 if pre else 0.0
-        rows.append({
-            "id": cid, "sym": SYMBOL_MAP.get(cid, cid.upper()),
-            "current_price": float(cur), "previous_price": float(pre),
-            "price_change_pct": chg24
-        })
+    failed = []
+    for tkr, cid in tickers.items():
+        try:
+            chart = _fetch_yahoo_chart(tkr, days=4)
+            if len(chart) < 2:
+                log.warning("%s: only %d data points", tkr, len(chart))
+                failed.append(tkr)
+                continue
+            cur = chart[-1]["close"]
+            pre = chart[-2]["close"]
+            chg24 = (cur / pre - 1.0) * 100.0 if pre else 0.0
+            rows.append({
+                "id": cid, "sym": SYMBOL_MAP.get(cid, cid.upper()),
+                "current_price": cur, "previous_price": pre,
+                "price_change_pct": chg24
+            })
+        except Exception as e:
+            log.warning("%s fetch failed: %s", tkr, e)
+            failed.append(tkr)
+
+    if not rows:
+        raise RuntimeError(f"All Yahoo Finance requests failed: {failed}")
+    if failed:
+        log.warning("Failed tickers (%d): %s", len(failed), failed)
 
     # Fill missing coins with NaN
     got = {r["id"] for r in rows}
     for m in ids:
-        if m in got:
-            continue
-        rows.append({
-            "id": m, "sym": SYMBOL_MAP.get(m, m.upper()),
-            "current_price": float("nan"), "previous_price": float("nan"),
-            "price_change_pct": float("nan")
-        })
+        if m not in got:
+            rows.append({
+                "id": m, "sym": SYMBOL_MAP.get(m, m.upper()),
+                "current_price": float("nan"), "previous_price": float("nan"),
+                "price_change_pct": float("nan")
+            })
     return pd.DataFrame(rows)
 
 
@@ -332,17 +318,6 @@ def _level_on_or_before(rows, target_ymd: str):
     return None
 
 
-def _to_ratio(x):
-    """Normalize percent or ratio to ratio (e.g. 12.3% -> 0.123)."""
-    if x is None:
-        return None
-    try:
-        v = float(x)
-        return v / 100.0 if abs(v) >= 2.0 else v
-    except Exception:
-        return None
-
-
 # ── Main ───────────────────────────────────────────────
 def main():
     log.info("BM20 Daily: %s", YMD)
@@ -355,13 +330,8 @@ def main():
     weights_map = compute_weights(df["id"].tolist())
     df["weight_ratio"] = df["id"].map(weights_map).astype(float)
 
-    # 3) Contribution
-    df["contribution"] = (df["current_price"] - df["previous_price"]) * df["weight_ratio"]
-
-    today_value = float((df["current_price"] * df["weight_ratio"]).sum())
-    prev_value = float((df["previous_price"] * df["weight_ratio"]).sum())
-    if prev_value == 0 or pd.isna(prev_value):
-        prev_value = today_value
+    # 3) Contribution: each coin's weighted pct contribution to index return
+    df["contribution"] = (df["price_change_pct"] / 100.0) * df["weight_ratio"]
 
     # 4) BM20 level from SSOT
     port_ret_1d = 0.0

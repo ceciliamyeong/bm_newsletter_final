@@ -368,12 +368,7 @@ def fmt_num(x: float, digits: int = 2) -> str:
     return f"{float(x):,.{digits}f}"
 
 def fmt_share_pct(x: float) -> str:
-    x = float(x)
-    # 0~1 비율로 들어오면 100 곱하기 (0.016 같은 경우)
-    # 1~100 범위면 이미 % 단위
-    if abs(x) < 1.0:
-        x *= 100.0
-    return f"{x:.1f}%"
+    return f"{float(x):.1f}%"
 
 def fmt_krw_big(x: float) -> str:
     x = float(x)
@@ -386,11 +381,8 @@ def fmt_krw_big(x: float) -> str:
     return f"{x:,.0f}원"
 
 def pct_to_display(x: float) -> float:
-    """Accept ratio(<=1.5) or pct; return pct number."""
-    x = float(x)
-    if abs(x) <= 1.5:
-        x *= 100.0
-    return x
+    """Convert ratio to percent (e.g. 0.02 → 2.0)."""
+    return float(x) * 100.0
 
 def colored_change_html(pct_value: float, digits: int = 2, wrap_parens: bool = False) -> str:
     v = float(pct_value)
