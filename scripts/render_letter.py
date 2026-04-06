@@ -522,13 +522,13 @@ def _aas_note_tag(text: str) -> str:
 
     # 소셜
     if any(k in t for k in SOCIAL_KEYWORDS):
-        style = "font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:12px;font-weight:bold;color:#c2410c;"
+        style = "font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:13px;font-weight:bold;color:#c2410c;"
     # 모멘텀
     elif any(k in t for k in MOMENTUM_KEYWORDS):
-        style = "font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:12px;font-weight:bold;color:#15803d;"
+        style = "font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:13px;font-weight:bold;color:#15803d;"
     # 기본 온체인(파랑)
     else:
-        style = "font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:12px;font-weight:bold;color:#1d4ed8;"
+        style = "font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:13px;font-weight:bold;color:#1d4ed8;"
     return f'<span style="{style}">{emoji}{t}</span>'
 
 
