@@ -24,6 +24,7 @@ from typing import Dict, List, Tuple
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import requests
+import config
 from logger import get_logger
 
 log = get_logger("krw_volume")
@@ -38,6 +39,8 @@ DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 LATEST_JSON = DATA_DIR / "krw_24h_latest.json"
+COIN_NAMES_JSON = DATA_DIR / "coin_names_kr.json"
+COIN_NAMES_EN_JSON = DATA_DIR / "coin_names_en.json"
 
 
 # -------------------------
@@ -49,6 +52,9 @@ UPBIT_TICKER = "https://api.upbit.com/v1/ticker"
 BITHUMB_TICKER_ALL = "https://api.bithumb.com/public/ticker/ALL_KRW"
 
 COINONE_TICKER = "https://api.coinone.co.kr/public/v2/ticker_new/KRW"
+
+CMC_MAP_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/map"
+CMC_CACHE_MAX_AGE = 24 * 3600  # 24 hours in seconds
 
 # -------------------------
 # HTTP helper
@@ -69,14 +75,46 @@ def now_kst() -> datetime:
     return datetime.now(tz=KST)
 
 # -------------------------
+# CMC coin name dictionary
+# -------------------------
+def fetch_cmc_coin_names():
+    """Fetch symbol->english_name map from CMC. Uses cached file if < 24h old."""
+    if COIN_NAMES_EN_JSON.exists():
+        age = time.time() - COIN_NAMES_EN_JSON.stat().st_mtime
+        if age < CMC_CACHE_MAX_AGE:
+            log.info("CMC coin names cache is fresh (%.1fh old), skipping API call", age / 3600)
+            return
+    api_key = config.CMC_API_KEY
+    if not api_key:
+        log.warning("CMC_API_KEY missing, skipping coin names fetch")
+        return
+    try:
+        r = requests.get(CMC_MAP_URL,
+                         headers={"X-CMC_PRO_API_KEY": api_key},
+                         params={"listing_status": "active", "limit": 5000},
+                         timeout=20)
+        r.raise_for_status()
+        data = r.json().get("data", [])
+        name_map = {item["symbol"]: item["name"] for item in data if item.get("symbol")}
+        write_json(COIN_NAMES_EN_JSON, name_map)
+        log.info("Saved %d CMC English coin names to %s", len(name_map), COIN_NAMES_EN_JSON.name)
+    except Exception as e:
+        log.warning("CMC coin names fetch failed: %s", e)
+
+
+# -------------------------
 # Fetch per exchange (pairs)
 # returns List[(symbol, krw_24h_value)]
 # symbol format: KRW-XXX
 # -------------------------
-def fetch_upbit_pairs() -> tuple[List[Tuple[str, float]], List[Dict]]:
-    """Returns (volume_pairs, raw_tickers) — raw_tickers includes change rate for reuse."""
+def fetch_upbit_pairs() -> tuple[List[Tuple[str, float]], List[Dict], Dict[str, str]]:
+    """Returns (volume_pairs, raw_tickers, name_map) — name_map: symbol->korean_name."""
     markets = http_get(UPBIT_MARKETS, {"isDetails": "false"})
     krw_markets = [m["market"] for m in markets if m.get("market", "").startswith("KRW-")]
+    name_map = {m["market"].replace("KRW-", ""): m.get("korean_name", "")
+                for m in markets if m.get("market", "").startswith("KRW-")}
+    write_json(COIN_NAMES_JSON, name_map)
+    log.info("Saved %d coin Korean names to %s", len(name_map), COIN_NAMES_JSON.name)
     out: List[Tuple[str, float]] = []
     raw_tickers: List[Dict] = []
     for i in range(0, len(krw_markets), 100):
@@ -89,7 +127,7 @@ def fetch_upbit_pairs() -> tuple[List[Tuple[str, float]], List[Dict]]:
                 out.append((sym, val))
                 raw_tickers.append(t)
         time.sleep(0.1)
-    return out, raw_tickers
+    return out, raw_tickers, name_map
 
 def fetch_bithumb_pairs() -> List[Tuple[str, float]]:
     j = http_get(BITHUMB_TICKER_ALL)
@@ -186,9 +224,10 @@ def run():
     ts_iso = ts.strftime("%Y-%m-%dT%H:%M:%S%z")  # e.g., 2026-01-24T09:05:00+0900
     ts_label = ts.strftime("%m/%d %H:%M KST")
 
-    up, upbit_raw_tickers = fetch_upbit_pairs()
+    up, upbit_raw_tickers, upbit_name_map = fetch_upbit_pairs()
     bt = fetch_bithumb_pairs()
     co = fetch_coinone_pairs()
+    fetch_cmc_coin_names()
 
     up_total = sum_total(up)
     bt_total = sum_total(bt)
@@ -231,11 +270,13 @@ def run():
         for t in top3:
             sym = t.get("market", "").replace("KRW-", "")
             pct = float(t.get("signed_change_rate", 0)) * 100
-            upbit_gainers.append({"symbol": sym, "change_pct": round(pct, 2), "side": "top"})
+            kr = upbit_name_map.get(sym, sym)
+            upbit_gainers.append({"symbol": sym, "korean_name": kr, "change_pct": round(pct, 2), "side": "top"})
         for t in bot3:
             sym = t.get("market", "").replace("KRW-", "")
             pct = float(t.get("signed_change_rate", 0)) * 100
-            upbit_gainers.append({"symbol": sym, "change_pct": round(pct, 2), "side": "bottom"})
+            kr = upbit_name_map.get(sym, sym)
+            upbit_gainers.append({"symbol": sym, "korean_name": kr, "change_pct": round(pct, 2), "side": "bottom"})
 
     latest = {
         "schema": "krw_rolling24h_v1",

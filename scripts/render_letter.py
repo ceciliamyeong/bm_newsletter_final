@@ -48,6 +48,8 @@ TEMPLATE = ROOT / "templates" / "letter_newsletter_template.html"
 BM20_JSON = DATA / "bm20_latest.json"
 DAILY_CSV = DATA / "bm20_daily_data_latest.csv"
 KRW_JSON = DATA / "krw_24h_latest.json"
+COIN_NAMES_JSON = DATA / "coin_names_kr.json"
+COIN_NAMES_EN_JSON = DATA / "coin_names_en.json"
 BTC_JSON = DATA / "btc_usd_series.json"  # optional
 
 BM20_HISTORY_JSON = DATA / "bm20_history.json"  # optional
@@ -146,10 +148,14 @@ def load_upbit_top_bottom_from_file(n: int = 3) -> dict[str, str]:
         bots = [g for g in gainers if g.get("side") == "bottom"][:n]
         result = {}
         for i, g in enumerate(tops, 1):
-            result[f"UPBIT_TOP{i}_SYMBOL"] = g.get("symbol", chr(8212))
+            sym = g.get("symbol", chr(8212))
+            kr = g.get("korean_name", "")
+            result[f"UPBIT_TOP{i}_SYMBOL"] = f"{kr}({sym})" if kr else sym
             result[f"UPBIT_TOP{i}_CHG"] = f"+{g['change_pct']:.1f}%"
         for i, g in enumerate(bots, 1):
-            result[f"UPBIT_BOT{i}_SYMBOL"] = g.get("symbol", chr(8212))
+            sym = g.get("symbol", chr(8212))
+            kr = g.get("korean_name", "")
+            result[f"UPBIT_BOT{i}_SYMBOL"] = f"{kr}({sym})" if kr else sym
             result[f"UPBIT_BOT{i}_CHG"] = f"{g['change_pct']:.1f}%"
         FB.update(result)
     except Exception as e:
@@ -593,12 +599,24 @@ def fetch_aas_data() -> dict[str, str]:
 </td></tr>'''
         return ph
 
+    coin_names_kr = load_json_optional(COIN_NAMES_JSON) or {}
+    coin_names_en = load_json_optional(COIN_NAMES_EN_JSON) or {}
+
     for i, item in enumerate(data[:3], 1):
         score = float(item.get("AAS", 0))
         score_pct = min(100, int((score / 3.0) * 100))
 
         note_text = item.get("Comment", "—")
-        ph[f"{{{{AAS_COIN_{i}}}}}"] = item.get("Symbol", "—")
+        sym = item.get("Symbol", "—")
+        kr = coin_names_kr.get(sym, "")
+        en = coin_names_en.get(sym, "")
+        if kr:
+            coin_label = f"{kr}({sym})"
+        elif en:
+            coin_label = f"{en}({sym})"
+        else:
+            coin_label = sym
+        ph[f"{{{{AAS_COIN_{i}}}}}"] = coin_label
         ph[f"{{{{AAS_SCORE_{i}}}}}"] = f"{score:.2f}"
         ph[f"{{{{AAS_SCORE_PERCENT_{i}}}}}"] = str(score_pct)
         ph[f"{{{{AAS_CHG_{i}}}}}"] = f"{float(item.get('24H(%)', 0)):+.2f}"
