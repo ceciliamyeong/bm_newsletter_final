@@ -488,7 +488,9 @@ def _aas_bar_html(onchain: float, social: float, momentum: float) -> str:
             continue
         tds += (
             f'<td width="{pct}%" style="background-color:{color};height:28px;'
-            f'font-family:Courier New,monospace;font-size:9px;font-weight:bold;'
+            f"font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',"
+            f"'Noto Sans KR','Malgun Gothic',Arial,sans-serif;"
+            f'font-size:9px;font-weight:bold;'
             f'color:#fff;text-align:center;vertical-align:middle;">{pct}%</td>'
         )
     return (
