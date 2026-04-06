@@ -741,7 +741,7 @@ def render() -> None:
     
     # Placeholders left for the mailing system to fill
     EXTERNAL_PLACEHOLDERS = {
-        "{{UNSUB_URL}}", "{{SUBSCRIBE_URL}}", "{{INTRO_TEXT}}",
+        "{{UNSUB_URL}}", "{{SUBSCRIBE_URL}}", "{{INTRO_TITLE}}", "{{INTRO_TEXT}}",
         "{{HEADLINE_NEWS_TITLE}}", "{{HEADLINE_NEWS_EXCERPT}}",
         "{{NEWS1_CATEGORY}}", "{{NEWS1_TITLE}}", "{{NEWS1_EXCERPT}}", "{{NEWS1_LINK}}",
         "{{NEWS2_CATEGORY}}", "{{NEWS2_TITLE}}", "{{NEWS2_EXCERPT}}", "{{NEWS2_LINK}}",
