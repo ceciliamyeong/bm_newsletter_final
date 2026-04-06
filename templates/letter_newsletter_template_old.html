@@ -16,14 +16,6 @@
   a { color:#2563eb; text-decoration:none; }
   .up   { color:#22c55e !important; }
   .down { color:#ef4444 !important; }
-  /* 모바일 반응형 */
-  @media only screen and (max-width: 600px) {
-    .col-stack { display:block !important; width:100% !important; border:none !important; padding-left:0 !important; padding-right:0 !important; border-bottom:1px solid #334155 !important; }
-    .col-stack:last-child { border-bottom:none !important; }
-    .col-stack-light { display:block !important; width:100% !important; border:none !important; border-bottom:1px solid #e2e8f0 !important; padding:10px 0 !important; }
-    .col-stack-light:last-child { border-bottom:none !important; }
-    .col-gap { display:none !important; }
-  }
   /* 다크모드 */
   @media (prefers-color-scheme: dark) {
     .dm-bg   { background:#1e293b !important; }
@@ -63,34 +55,34 @@
   <!-- ══ INTRO ══ -->
   <tr>
     <td style="padding:24px 24px 20px;border-bottom:1px solid #e2e8f0;">
-      <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:24px;font-weight:900;color:#0f172a;line-height:1.3;letter-spacing:-0.03em;margin:0 0 14px 0;">{{INTRO_TITLE}}</p>
+      <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:28px;font-weight:900;color:#0f172a;line-height:1.3;letter-spacing:-0.03em;margin:0 0 14px 0;">{{INTRO_TITLE}}</p>
       <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:13px;color:#475569;line-height:1.8;margin:0;">{{INTRO_TEXT}}</p>
     </td>
   </tr>
 
   <!-- ══ ① 어제 시장 어땠어? ══ -->
   <tr>
-    <td style="padding:32px 24px 28px;border-left:4px solid #2563eb;border-bottom:1px solid #e2e8f0;">
+    <td style="padding:24px 24px 20px;border-bottom:3px solid #0f172a;">
       <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:22px;font-weight:900;color:#0f172a;letter-spacing:-0.03em;margin:0 0 16px 0;">① 오늘 아침 시장은? 🤔</p>
-      <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:24px;font-weight:900;color:#0f172a;line-height:1.3;letter-spacing:-0.03em;margin:0 0 10px 0;">{{HEADLINE_NEWS_TITLE}}</p>
+      <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:26px;font-weight:900;color:#0f172a;line-height:1.3;letter-spacing:-0.03em;margin:0 0 10px 0;">{{HEADLINE_NEWS_TITLE}}</p>
       <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:14px;color:#334155;line-height:1.8;margin:0 0 16px 0;">{{HEADLINE_NEWS_EXCERPT}}</p>
 
       <!-- 대시보드 3열 -->
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#0f172a;border-radius:4px;">
         <tr>
-          <td class="col-stack" width="33%" valign="top" align="center" style="padding:14px 8px;border-right:1px solid #1e293b;">
+          <td width="33%" valign="top" align="center" style="padding:14px 8px;border-right:1px solid #1e293b;">
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;font-weight:900;color:#94a3b8;letter-spacing:0.05em;margin:0 0 6px 0;">비트코인</p>
-            <p style="font-family:Courier New,Courier,monospace;font-size:20px;font-weight:900;color:#ef4444;margin:0 0 4px 0;">{{BTC_1D}}</p>
+            <p style="font-family:Courier New,Courier,monospace;font-size:17px;font-weight:900;color:#ef4444;margin:0 0 4px 0;">{{BTC_1D}}</p>
             <p style="font-family:Courier New,Courier,monospace;font-size:12px;font-weight:900;color:#60a5fa;margin:0;">{{BTC_USD}}</p>
           </td>
-          <td class="col-stack" width="33%" valign="top" align="center" style="padding:14px 8px;border-right:1px solid #1e293b;">
+          <td width="33%" valign="top" align="center" style="padding:14px 8px;border-right:1px solid #1e293b;">
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;font-weight:900;color:#94a3b8;letter-spacing:0.05em;margin:0 0 6px 0;">BM20 지수</p>
-            <p style="font-family:Courier New,Courier,monospace;font-size:20px;font-weight:900;color:#ef4444;margin:0 0 4px 0;">{{BM20_1D}}</p>
+            <p style="font-family:Courier New,Courier,monospace;font-size:17px;font-weight:900;color:#ef4444;margin:0 0 4px 0;">{{BM20_1D}}</p>
             <p style="font-family:Courier New,Courier,monospace;font-size:12px;font-weight:900;color:#60a5fa;margin:0;">레벨 {{BM20_LEVEL}}</p>
           </td>
-          <td class="col-stack" width="34%" valign="top" align="center" style="padding:14px 8px;">
+          <td width="34%" valign="top" align="center" style="padding:14px 8px;">
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;font-weight:900;color:#94a3b8;letter-spacing:0.05em;margin:0 0 6px 0;">공포·탐욕 지수</p>
-            <p style="font-family:Courier New,Courier,monospace;font-size:20px;font-weight:900;color:#f97316;margin:0 0 4px 0;">{{SENTIMENT_LABEL}}</p>
+            <p style="font-family:Courier New,Courier,monospace;font-size:17px;font-weight:900;color:#f97316;margin:0 0 4px 0;">{{SENTIMENT_LABEL}}</p>
             <p style="font-family:Courier New,Courier,monospace;font-size:12px;font-weight:900;color:#60a5fa;margin:0;">{{SENTIMENT_SCORE}} / 100</p>
           </td>
         </tr>
@@ -99,7 +91,7 @@
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:16px;">
         <tr>
           <td>
-            <a href="https://data.blockmedia.co.kr/bm20_index.html" style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:700;color:#2563eb;text-decoration:none;">BM20 차트 보기 →</a>
+            <a href="https://data.blockmedia.co.kr/bm20_index.html" style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:900;color:#2563eb;text-decoration:none;border:1px solid #2563eb;padding:7px 14px;display:inline-block;">BM20 차트 보기 →</a>
           </td>
         </tr>
       </table>
@@ -108,14 +100,13 @@
 
   <!-- ══ ② 내 코인 올랐어 내렸어? ══ -->
   <tr>
-    <td style="padding:32px 24px 28px;border-bottom:1px solid #e2e8f0;">
-      <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:22px;font-weight:700;color:#0f172a;letter-spacing:-0.03em;margin:0 0 6px 0;">② 내 코인 올랐어 내렸어? 🫨</p>
+    <td style="padding:24px 24px 20px;border-bottom:3px solid #0f172a;">
+      <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:22px;font-weight:900;color:#0f172a;letter-spacing:-0.03em;margin:0 0 6px 0;">② 내 코인 올랐어 내렸어? 🫨</p>
       <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:900;color:#2563eb;letter-spacing:0.05em;margin:0 0 12px 0;">📈 업비트 등락 24시간</p>
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
         <tr>
           <!-- Top 3 -->
-          <td width="50%" valign="top" style="padding:0 6px 0 0;">
-          <div style="background-color:#f8fafc;border:1px solid #e2e8f0;padding:12px;">
+          <td width="49%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;padding:12px;">
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;font-weight:900;color:#16a34a;letter-spacing:0.05em;margin:0 0 10px 0;">▲ 상승 Top 3</p>
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
               <tr>
@@ -131,11 +122,10 @@
                 <td align="right" style="font-family:Courier New,Courier,monospace;font-size:13px;font-weight:900;color:#22c55e;padding:5px 0;">{{UPBIT_TOP3_CHG}}</td>
               </tr>
             </table>
-          </div>
           </td>
+          <td width="2%"></td>
           <!-- Bottom 3 -->
-          <td width="50%" valign="top" style="padding:0 0 0 6px;">
-          <div style="background-color:#f8fafc;border:1px solid #e2e8f0;padding:12px;">
+          <td width="49%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;padding:12px;">
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;font-weight:900;color:#ef4444;letter-spacing:0.05em;margin:0 0 10px 0;">▼ 하락 Bottom 3</p>
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
               <tr>
@@ -151,7 +141,6 @@
                 <td align="right" style="font-family:Courier New,Courier,monospace;font-size:13px;font-weight:900;color:#ef4444;padding:5px 0;">{{UPBIT_BOT3_CHG}}</td>
               </tr>
             </table>
-          </div>
           </td>
         </tr>
       </table>
@@ -159,7 +148,7 @@
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:16px;">
         <tr>
           <td>
-            <a href="https://data.blockmedia.co.kr/" style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:700;color:#2563eb;text-decoration:none;">KRW 대시보드 전체 보기 →</a>
+            <a href="https://data.blockmedia.co.kr/" style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:900;color:#2563eb;text-decoration:none;border:1px solid #2563eb;padding:7px 14px;display:inline-block;">KRW 대시보드 전체 보기 →</a>
           </td>
         </tr>
       </table>
@@ -168,8 +157,8 @@
 
   <!-- ══ ③ 왜 그랬어? ══ -->
   <tr>
-    <td style="padding:32px 24px 28px;border-bottom:1px solid #e2e8f0;">
-      <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:22px;font-weight:700;color:#0f172a;letter-spacing:-0.03em;margin:0 0 16px 0;">③ 시장을 움직인 뉴스 🗞️</p>
+    <td style="padding:24px 24px 20px;border-bottom:3px solid #0f172a;">
+      <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:22px;font-weight:900;color:#0f172a;letter-spacing:-0.03em;margin:0 0 16px 0;">③ 시장을 움직인 뉴스 🗞️</p>
 
       <!-- 뉴스 1 -->
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-bottom:1px solid #f1f5f9;margin-bottom:14px;">
@@ -208,28 +197,28 @@
 
   <!-- ══ ④ 돈은 어디로? ══ -->
   <tr>
-    <td style="padding:32px 24px 28px;border-bottom:1px solid #e2e8f0;">
-      <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:22px;font-weight:700;color:#0f172a;letter-spacing:-0.03em;margin:0 0 6px 0;">④ 돈은 어디로 흘러가고 있어? 🏃</p>
+    <td style="padding:24px 24px 20px;border-bottom:3px solid #0f172a;">
+      <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:22px;font-weight:900;color:#0f172a;letter-spacing:-0.03em;margin:0 0 6px 0;">④ 돈은 어디로 흘러가고 있어? 🏃</p>
       <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:900;color:#2563eb;letter-spacing:0.05em;margin:0 0 12px 0;">🇺🇸 미국 가상자산 ETF 자금 흐름</p>
 
       <!-- ETF 3열 -->
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:16px;">
         <tr>
-          <td class="col-stack-light" width="32%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;padding:10px 8px;">
+          <td width="32%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;padding:10px 8px;">
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;font-weight:900;color:#475569;margin:0 0 6px 0;">BTC 현물 ETF</p>
-            <p style="font-family:Courier New,Courier,monospace;font-size:20px;font-weight:900;margin:0 0 4px 0;">{{ETF_BTC_INFLOW}}</p>
+            <p style="font-family:Courier New,Courier,monospace;font-size:17px;font-weight:900;color:#ffffff;margin:0 0 4px 0;">{{ETF_BTC_INFLOW}}</p>
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:900;color:#475569;margin:0;">운용자산 {{ETF_BTC_AUM}}</p>
           </td>
-          <td class="col-gap" width="2%"></td>
-          <td class="col-stack-light" width="32%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;padding:10px 8px;">
+          <td width="2%"></td>
+          <td width="32%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;padding:10px 8px;">
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;font-weight:900;color:#475569;margin:0 0 6px 0;">ETH 현물 ETF</p>
-            <p style="font-family:Courier New,Courier,monospace;font-size:20px;font-weight:900;margin:0 0 4px 0;">{{ETF_ETH_INFLOW}}</p>
+            <p style="font-family:Courier New,Courier,monospace;font-size:17px;font-weight:900;color:#ffffff;margin:0 0 4px 0;">{{ETF_ETH_INFLOW}}</p>
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:900;color:#475569;margin:0;">운용자산 {{ETF_ETH_AUM}}</p>
           </td>
-          <td class="col-gap" width="2%"></td>
-          <td class="col-stack-light" width="32%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;padding:10px 8px;">
+          <td width="2%"></td>
+          <td width="32%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;padding:10px 8px;">
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;font-weight:900;color:#475569;margin:0 0 6px 0;">SOL 현물 ETF</p>
-            <p style="font-family:Courier New,Courier,monospace;font-size:20px;font-weight:900;margin:0 0 4px 0;">{{ETF_SOL_INFLOW}}</p>
+            <p style="font-family:Courier New,Courier,monospace;font-size:17px;font-weight:900;color:#ffffff;margin:0 0 4px 0;">{{ETF_SOL_INFLOW}}</p>
             <p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:900;color:#475569;margin:0;">운용자산 {{ETF_SOL_AUM}}</p>
           </td>
         </tr>
@@ -257,7 +246,7 @@
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:16px;">
         <tr>
           <td>
-            <a href="https://data.blockmedia.co.kr/etf.html" style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:700;color:#2563eb;text-decoration:none;">ETF 전체 현황 보기 →</a>
+            <a href="https://data.blockmedia.co.kr/etf.html" style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:900;color:#2563eb;text-decoration:none;border:1px solid #2563eb;padding:7px 14px;display:inline-block;">ETF 전체 현황 보기 →</a>
           </td>
         </tr>
       </table>
@@ -400,11 +389,11 @@
 
   <!-- 푸터 안내 -->
   <tr>
-    <td style="background-color:#f7f7f5;border-top:1px solid #e8e8e4;border-bottom:1px solid #e2e8f0;padding:10px 24px;">
+    <td style="background-color:#f7f7f5;border-top:1px solid #e8e8e4;border-bottom:3px solid #0d1117;padding:10px 24px;">
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
         <tr>
           <td><p style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;color:#999;font-style:italic;margin:0;">※ 이 내용은 투자 조언이 아닙니다. 데이터 기반 시그널 요약입니다.</p></td>
-          <td align="right"><a href="https://blockmedia-datateam.github.io/BM-AAS-newsletter/kosengji.html" style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:700;color:#2563eb;text-decoration:none;white-space:nowrap;">코생지 전체 보기 →</a></td>
+          <td align="right"><a href="https://blockmedia-datateam.github.io/BM-AAS-newsletter/kosengji.html" style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:12px;font-weight:900;color:#2563eb;text-decoration:none;border:1px solid #2563eb;padding:5px 12px;display:inline-block;white-space:nowrap;">코생지 전체 보기 →</a></td>
         </tr>
       </table>
     </td>
@@ -426,7 +415,7 @@
   <!-- ══ FOOTER ══ -->
   <tr>
     <td style="background-color:#0f172a;padding:28px 24px;text-align:center;">
-      <p style="margin:0 0 12px 0;"><img src="https://www.blockmedia.co.kr/wp-content/uploads/2024/07/Blockmedia_Logo_name_dark_theme.png" width="120" alt="블록미디어" style="display:block;border:0;height:auto;max-width:120px;margin:0 auto;"></p>
+      <p style="margin:0 0 12px 0;"><img src="https://www.blockmedia.co.kr/wp-content/uploads/2024/07/Blockmedia_Logo_name_dark_theme.png" width="120" alt="블록미디어" style="display:block;border:0;height:auto;max-width:120px;"></p>
       <p style="margin:0 0 14px 0;">
         <a href="{{UNSUB_URL}}" style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;color:#60a5fa;text-decoration:underline;margin:0 8px;">수신거부</a>
         <a href="https://blockmedia.co.kr" style="font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:11px;color:#60a5fa;text-decoration:underline;margin:0 8px;">공식 홈페이지</a>
