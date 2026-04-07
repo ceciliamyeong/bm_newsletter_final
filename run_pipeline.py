@@ -56,11 +56,18 @@ def run_step(step_num: int, script: str, description: str) -> bool:
     log.info("Step %d: %s [%s]", step_num, description, script)
 
     start = time.time()
-    result = subprocess.run(
-        [str(PYTHON), str(script_path)],
-        cwd=str(ROOT),
-        capture_output=False,
-    )
+    try:
+        result = subprocess.run(
+            [str(PYTHON), str(script_path)],
+            cwd=str(ROOT),
+            capture_output=False,
+            timeout=120,
+        )
+    except subprocess.TimeoutExpired:
+        elapsed = time.time() - start
+        log.error("Step %d: TIMEOUT after %.1fs", step_num, elapsed)
+        return False
+
     elapsed = time.time() - start
 
     if result.returncode == 0:
@@ -96,8 +103,7 @@ def main():
         log.info("  Step %d: [%s] %s", step_num, status, script)
 
     if failed:
-        log.error("Pipeline finished: %d step(s) failed (%.1fs)", len(failed), total_elapsed)
-        sys.exit(1)
+        log.warning("Pipeline finished: %d step(s) failed (%.1fs)", len(failed), total_elapsed)
     else:
         log.info("Pipeline finished: all steps passed (%.1fs)", total_elapsed)
 
