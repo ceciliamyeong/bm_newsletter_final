@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 
 """
 KRW Rolling 24h Dashboard Pipeline (8h snapshots)

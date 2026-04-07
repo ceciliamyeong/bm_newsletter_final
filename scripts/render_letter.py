@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Render letter.html by replacing placeholders in letter_newsletter_template.html.
+Render newsletter.html by replacing placeholders in letter_newsletter_template.html.
 
 Design goals
 - Never leave {{PLACEHOLDER}} strings in output: fill with real values or "—"
@@ -19,7 +19,7 @@ Inputs (all in data/):
 - data/etf_summary.json (optional)
 
 Output
-- output/letter.html
+- output/newsletter.html
 """
 
 from __future__ import annotations
@@ -58,7 +58,7 @@ ETF_JSON          = DATA / "etf_summary.json"  # optional
 NEWS_ONELINER_TXT = DATA / "news_one_liner.txt"
 NEWS_ONELINER_NOTE_TXT = DATA / "news_one_liner_note.txt"
 
-OUT = ROOT / "output" / "letter.html"
+OUT = ROOT / "output" / "newsletter.html"
 
 GREEN = "#16a34a"
 RED = "#dc2626"

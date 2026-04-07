@@ -2,7 +2,7 @@
 """
 deliver_letter.py
 ==================
-Upload letter.html to WordPress server via REST API.
+Upload newsletter.html to WordPress server via REST API.
 Retries up to 3 times with 5s delay between attempts.
 """
 
@@ -18,7 +18,8 @@ from logger import get_logger
 
 log = get_logger("deliver")
 
-LETTER_HTML = config.OUTPUT_DIR / "letter.html"
+LETTER_FILENAME = "newsletter.html"
+LETTER_HTML = config.OUTPUT_DIR / LETTER_FILENAME
 MAX_RETRIES = 3
 RETRY_DELAY = 5  # seconds
 
@@ -33,11 +34,11 @@ def deliver():
         return False
 
     if not LETTER_HTML.exists():
-        log.error("letter.html not found: %s", LETTER_HTML)
+        log.error("%s not found: %s", LETTER_FILENAME, LETTER_HTML)
         return False
 
     html = LETTER_HTML.read_bytes()
-    log.info("Uploading letter.html (%.1f KB) to %s", len(html) / 1024, config.HTM_API_URL)
+    log.info("Uploading %s (%.1f KB) to %s", LETTER_FILENAME, len(html) / 1024, config.HTM_API_URL)
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
