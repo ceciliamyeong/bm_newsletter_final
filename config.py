@@ -24,3 +24,6 @@ SOSOVALUE_API_KEY = os.environ.get("SOSOVALUE_API_KEY", "")
 # ── Newsletter delivery API ──────────────────────────
 HTM_API_URL = os.environ.get("HTM_API_URL", "")
 HTM_API_KEY = os.environ.get("HTM_API_KEY", "")
+
+# ── CGI trigger ──────────────────────────────────────
+CGI_SECRET_KEY = os.environ.get("CGI_SECRET_KEY", "")
