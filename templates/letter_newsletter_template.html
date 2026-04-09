@@ -12,10 +12,12 @@
   body, table, td, p, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
   table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; }
   img { border:0; outline:none; text-decoration:none; }
-  body { margin:0; padding:0; background:#e8edf2; }
+  body { margin:0; padding:0; background:#e8edf2; word-break:keep-all; }
   a { color:#2563eb; text-decoration:none; }
   .up   { color:#22c55e !important; }
   .down { color:#ef4444 !important; }
+</style>
+<style data-embed>
   /* 모바일 반응형 */
   @media only screen and (max-width: 600px) {
     .col-stack { display:block !important; width:100% !important; border:none !important; padding-left:0 !important; padding-right:0 !important; border-bottom:1px solid #334155 !important; }
@@ -23,11 +25,6 @@
     .col-stack-light { display:block !important; width:100% !important; padding:0 0 12px 0 !important; }
     .col-stack-light:last-child { padding-bottom:0 !important; }
     .col-gap { display:none !important; }
-  }
-  /* 다크모드 */
-  @media (prefers-color-scheme: dark) {
-    .dm-bg   { background:#1e293b !important; }
-    .dm-text { color:#f1f5f9 !important; }
   }
 </style>
 </head>
