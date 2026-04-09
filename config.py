@@ -27,3 +27,4 @@ HTM_API_KEY = os.environ.get("HTM_API_KEY", "")
 
 # ── CGI trigger ──────────────────────────────────────
 CGI_SECRET_KEY = os.environ.get("CGI_SECRET_KEY", "")
+CACHE_TTL = 60  # seconds — skip pipeline if newsletter.html is fresher than this
