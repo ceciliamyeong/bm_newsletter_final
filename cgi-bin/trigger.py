@@ -23,6 +23,8 @@ import signal
 import subprocess
 from pathlib import Path
 
+os.umask(0o002)  # files created by Apache get group write (rw-rw-r--)
+
 ROOT = Path(__file__).resolve().parent.parent
 PYTHON = ROOT / "venv" / "bin" / "python"
 OUTPUT = ROOT / "output" / "newsletter.html"
