@@ -4,10 +4,11 @@ from __future__ import annotations
 """
 BM20 Daily Index Calculator
 ============================
-Generates bm20_latest.json and bm20_daily_data_latest.csv from Yahoo Finance data.
+Generates bm20_latest.json and bm20_daily_data_latest.csv.
 
 BM20 composition: BTC 30% / ETH 20% / XRP 5% / USDT 5% / BNB 5% / 15 others equal (~2.33% each)
-Price source: yfinance (free, no API key required)
+Price source: CoinMarketCap API (CMC_API_KEY required)
+USDKRW: Yahoo Finance Chart API
 Kimchi premium: Upbit KRW-BTC vs Binance BTC-USD
 
 Outputs (in data/):
@@ -82,16 +83,6 @@ BM20_IDS = [
     "bitcoin-cash", "hedera-hashgraph", "litecoin", "shiba-inu", "toncoin",
 ]
 
-YF_MAP = {
-    "bitcoin": "BTC-USD", "ethereum": "ETH-USD", "ripple": "XRP-USD",
-    "tether": "USDT-USD", "binancecoin": "BNB-USD", "solana": "SOL-USD",
-    "usd-coin": "USDC-USD", "dogecoin": "DOGE-USD", "tron": "TRX-USD",
-    "cardano": "ADA-USD", "hyperliquid": "HYPE32196-USD", "chainlink": "LINK-USD",
-    "sui": "SUI20947-USD", "avalanche-2": "AVAX-USD", "stellar": "XLM-USD",
-    "bitcoin-cash": "BCH-USD", "hedera-hashgraph": "HBAR-USD",
-    "litecoin": "LTC-USD", "shiba-inu": "SHIB-USD", "toncoin": "TON11419-USD",
-}
-
 SYMBOL_MAP = {
     "bitcoin": "BTC", "ethereum": "ETH", "ripple": "XRP", "tether": "USDT",
     "binancecoin": "BNB", "solana": "SOL", "usd-coin": "USDC", "dogecoin": "DOGE",
@@ -106,66 +97,55 @@ FIXED_WEIGHTS = {
 }
 
 
-# ── Price fetching ─────────────────────────────────────
-YF_API_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{ticker}"
-YF_HEADERS = {"User-Agent": "BM20/1.0"}
+# ── Price fetching (CoinMarketCap) ────────────────────
+def fetch_cmc_prices(ids: list[str]) -> pd.DataFrame:
+    """Fetch current prices + 24h change for all BM20 coins via CMC API (1 request)."""
+    api_key = config.CMC_API_KEY
+    if not api_key:
+        raise RuntimeError("CMC_API_KEY missing")
 
+    symbols = [SYMBOL_MAP.get(cid, cid.upper()) for cid in ids]
+    symbol_str = ",".join(symbols)
 
-def _fetch_yahoo_chart(ticker: str, days: int = 2, timeout: int = 12) -> list[dict]:
-    """Fetch daily OHLC from Yahoo Finance chart API. Returns list of {date, close}."""
-    params = {"range": f"{days}d", "interval": "1d"}
-    r = requests.get(YF_API_URL.format(ticker=ticker), params=params,
-                     headers=YF_HEADERS, timeout=timeout)
+    r = requests.get(
+        "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest",
+        headers={"X-CMC_PRO_API_KEY": api_key},
+        params={"symbol": symbol_str, "convert": "USD"},
+        timeout=15,
+    )
     r.raise_for_status()
-    data = r.json()
-    result = data.get("chart", {}).get("result")
-    if not result:
-        return []
-    timestamps = result[0].get("timestamp", [])
-    closes = result[0].get("indicators", {}).get("quote", [{}])[0].get("close", [])
-    rows = []
-    for ts, c in zip(timestamps, closes):
-        if c is not None:
-            d = datetime.fromtimestamp(ts, tz=timezone.utc).strftime("%Y-%m-%d")
-            rows.append({"date": d, "close": float(c)})
-    return rows
+    data = r.json().get("data", {})
+    log.info("CMC response: %d coins", len(data))
 
-
-def fetch_yf_prices(ids: list[str]) -> pd.DataFrame:
-    """Fetch current and previous day prices for all BM20 coins via Yahoo Finance API."""
-    pairs = {cid: YF_MAP.get(cid) for cid in ids}
-    tickers = {t: cid for cid, t in pairs.items() if t}
-    if not tickers:
-        raise RuntimeError("No Yahoo tickers mapped.")
+    sym_to_cid = {v: k for k, v in SYMBOL_MAP.items()}
 
     rows = []
-    failed = []
-    for tkr, cid in tickers.items():
-        try:
-            chart = _fetch_yahoo_chart(tkr, days=4)
-            if len(chart) < 2:
-                log.warning("%s: only %d data points", tkr, len(chart))
-                failed.append(tkr)
-                continue
-            cur = chart[-1]["close"]
-            pre = chart[-2]["close"]
-            chg24 = (cur / pre - 1.0) * 100.0 if pre else 0.0
-            rows.append({
-                "id": cid, "sym": SYMBOL_MAP.get(cid, cid.upper()),
-                "current_price": cur, "previous_price": pre,
-                "price_change_pct": chg24
-            })
-        except Exception as e:
-            log.warning("%s fetch failed: %s", tkr, e)
-            failed.append(tkr)
+    got = set()
+    for sym, entries in data.items():
+        entry = entries[0] if isinstance(entries, list) else entries
+        quote = entry.get("quote", {}).get("USD", {})
+        price = quote.get("price")
+        chg24 = quote.get("percent_change_24h")
+        if price is None:
+            continue
+        cid = sym_to_cid.get(sym.upper())
+        if not cid:
+            continue
+        price = float(price)
+        chg24 = float(chg24) if chg24 is not None else 0.0
+        prev_price = price / (1.0 + chg24 / 100.0) if chg24 != -100 else price
+        rows.append({
+            "id": cid, "sym": SYMBOL_MAP.get(cid, cid.upper()),
+            "current_price": price,
+            "previous_price": prev_price,
+            "price_change_pct": chg24,
+        })
+        got.add(cid)
 
     if not rows:
-        raise RuntimeError(f"All Yahoo Finance requests failed: {failed}")
-    if failed:
-        log.warning("Failed tickers (%d): %s", len(failed), failed)
+        raise RuntimeError("CMC API returned no valid prices")
 
     # Fill missing coins with NaN
-    got = {r["id"] for r in rows}
     for m in ids:
         if m not in got:
             rows.append({
@@ -173,6 +153,8 @@ def fetch_yf_prices(ids: list[str]) -> pd.DataFrame:
                 "current_price": float("nan"), "previous_price": float("nan"),
                 "price_change_pct": float("nan")
             })
+
+    log.info("Prices fetched: %d/%d coins", len(got), len(ids))
     return pd.DataFrame(rows)
 
 
@@ -217,21 +199,37 @@ def get_kimchi() -> tuple:
 
     if btc_usd is None:
         try:
-            y = yf.Ticker("BTC-USD").history(period="2d")["Close"]
-            btc_usd = float(y.iloc[-1])
+            r = requests.get(
+                "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD",
+                headers={"User-Agent": "Mozilla/5.0"},
+                params={"interval": "1d", "range": "2d"},
+                timeout=10,
+            )
+            r.raise_for_status()
+            closes = r.json()["chart"]["result"][0]["indicators"]["quote"][0]["close"]
+            closes = [x for x in closes if x is not None]
+            btc_usd = float(closes[-1])
         except Exception:
             cached = read_json(KP_CACHE)
             if cached:
                 return cached.get("kimchi_pct"), {**cached, "is_cache": True}
             return None, {"is_cache": True, "usdkrw": 1510.0}
 
-    # USD/KRW exchange rate
+    # USD/KRW exchange rate (Yahoo Chart API)
     try:
-        h = yf.Ticker("USDKRW=X").history(period="2d")
-        usdkrw = float(h["Close"].dropna().iloc[-1])
+        r = requests.get(
+            "https://query1.finance.yahoo.com/v8/finance/chart/USDKRW=X",
+            headers={"User-Agent": "Mozilla/5.0"},
+            params={"interval": "1d", "range": "2d"},
+            timeout=10,
+        )
+        r.raise_for_status()
+        usdkrw = float(r.json()["chart"]["result"][0]["meta"]["regularMarketPrice"])
         if not (900 <= usdkrw <= 2000):
-            raise ValueError
-    except Exception:
+            raise ValueError(f"USDKRW out of range: {usdkrw}")
+        log.info("USDKRW=%.2f (Yahoo Chart API)", usdkrw)
+    except Exception as e:
+        log.warning("USDKRW fetch failed: %s → 1510 fallback", e)
         usdkrw = 1510.0
 
     kp = ((btc_krw / usdkrw) - btc_usd) / btc_usd * 100
@@ -324,7 +322,7 @@ def main():
     log.info("BM20 Daily: %s", YMD)
 
     # 1) Fetch prices
-    df = fetch_yf_prices(BM20_IDS)
+    df = fetch_cmc_prices(BM20_IDS)
     log.info("Prices fetched: %d coins", len(df))
 
     # 2) Weights
