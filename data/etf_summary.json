@@ -1,0 +1,27 @@
+{
+  "updatedAt": "2026-04-14T04:47:24Z",
+  "btc": {
+    "totalNetAssets": "94646444142.2803202100000000",
+    "dailyNetInflow": "-325812335.9499999990000000",
+    "cumNetInflow": "56436254129.3379984822000000",
+    "dailyTotalValueTraded": "2442557159.7600000000000000",
+    "totalTokenHoldings": "1291632.01340360",
+    "lastUpdateDate": "2026-04-13"
+  },
+  "eth": {
+    "totalNetAssets": "12988002478.4819990060000000",
+    "dailyNetInflow": "7733198.2200000000000000",
+    "cumNetInflow": "11675480524.3909997330300000",
+    "dailyTotalValueTraded": "922089623.6000000000000000",
+    "totalTokenHoldings": "5761909.80824091",
+    "lastUpdateDate": "2026-04-13"
+  },
+  "sol": {
+    "totalNetAssets": "812248384.8970000297000000",
+    "dailyNetInflow": "0.0000000000000000",
+    "cumNetInflow": "974682987.1630000187800000",
+    "dailyTotalValueTraded": "35297263.0000000000000000",
+    "totalTokenHoldings": "9677679.12730080",
+    "lastUpdateDate": "2026-04-13"
+  }
+}

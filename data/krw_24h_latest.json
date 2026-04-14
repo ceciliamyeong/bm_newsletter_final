@@ -1,0 +1,182 @@
+{
+  "schema": "krw_rolling24h_v1",
+  "timestamp_kst": "2026-04-14T13:47:20+0900",
+  "timestamp_label": "04/14 13:47 KST",
+  "totals": {
+    "combined_24h": 2672406423893.979,
+    "upbit_24h": 1741776312972.907,
+    "bithumb_24h": 809456653311.1637,
+    "coinone_24h": 121173457609.9083
+  },
+  "stablecoins": {
+    "total_stable_vol_24h": 347668216062.9826,
+    "stable_dominance_pct": 13.009556216991621,
+    "by_asset": {
+      "USDC": 59284453110.013405,
+      "USDT": 288383762952.9692
+    }
+  },
+  "by_exchange_top": {
+    "upbit_top5": [
+      {
+        "symbol": "KRW-ETH",
+        "value": 217512293252.692
+      },
+      {
+        "symbol": "KRW-BTC",
+        "value": 213479590988.4253
+      },
+      {
+        "symbol": "KRW-WET",
+        "value": 171984087001.14587
+      },
+      {
+        "symbol": "KRW-XRP",
+        "value": 171347090934.5516
+      },
+      {
+        "symbol": "KRW-USDT",
+        "value": 116264938592.76668
+      }
+    ],
+    "bithumb_top5": [
+      {
+        "symbol": "KRW-USDT",
+        "value": 139069248886.7841
+      },
+      {
+        "symbol": "KRW-ETH",
+        "value": 91655578769.51085
+      },
+      {
+        "symbol": "KRW-BTC",
+        "value": 83439123349.866
+      },
+      {
+        "symbol": "KRW-XRP",
+        "value": 69169915568.13237
+      },
+      {
+        "symbol": "KRW-WET",
+        "value": 35108131719.40739
+      }
+    ],
+    "coinone_top5": [
+      {
+        "symbol": "KRW-USDC",
+        "value": 53774909281.8604
+      },
+      {
+        "symbol": "KRW-USDT",
+        "value": 33049575473.4184
+      },
+      {
+        "symbol": "KRW-BTC",
+        "value": 9000694465.3907
+      },
+      {
+        "symbol": "KRW-ETH",
+        "value": 5919361450.4371
+      },
+      {
+        "symbol": "KRW-XRP",
+        "value": 5767173850.9903
+      }
+    ]
+  },
+  "top10": {
+    "top10_total_24h": 1651895861971.8022,
+    "rest_total_24h": 1020510561922.1768,
+    "top10_share_pct": 61.81304786585624,
+    "coins": [
+      {
+        "symbol": "KRW-ETH",
+        "value": 315087233472.6399,
+        "share_pct": 11.790393506595619
+      },
+      {
+        "symbol": "KRW-BTC",
+        "value": 305919408803.68195,
+        "share_pct": 11.44733847623091
+      },
+      {
+        "symbol": "KRW-USDT",
+        "value": 288383762952.9692,
+        "share_pct": 10.791164112409351
+      },
+      {
+        "symbol": "KRW-XRP",
+        "value": 246284180353.67426,
+        "share_pct": 9.215820548538128
+      },
+      {
+        "symbol": "KRW-WET",
+        "value": 207240468763.52975,
+        "share_pct": 7.7548260216183165
+      },
+      {
+        "symbol": "KRW-DRIFT",
+        "value": 63307816940.636475,
+        "share_pct": 2.368944198554585
+      },
+      {
+        "symbol": "KRW-HOLO",
+        "value": 63095882480.08763,
+        "share_pct": 2.361013725904395
+      },
+      {
+        "symbol": "KRW-USDC",
+        "value": 59284453110.013405,
+        "share_pct": 2.2183921045822697
+      },
+      {
+        "symbol": "KRW-SOL",
+        "value": 57559057659.86699,
+        "share_pct": 2.153828741961986
+      },
+      {
+        "symbol": "KRW-ATH",
+        "value": 45733597434.70279,
+        "share_pct": 1.7113264294606843
+      }
+    ]
+  },
+  "upbit_gainers": [
+    {
+      "symbol": "ZBT",
+      "korean_name": "제로베이스",
+      "change_pct": 15.97,
+      "side": "top"
+    },
+    {
+      "symbol": "DRIFT",
+      "korean_name": "드리프트",
+      "change_pct": 7.83,
+      "side": "top"
+    },
+    {
+      "symbol": "JST",
+      "korean_name": "저스트",
+      "change_pct": 5.41,
+      "side": "top"
+    },
+    {
+      "symbol": "WET",
+      "korean_name": "휴미디파이",
+      "change_pct": -11.29,
+      "side": "bottom"
+    },
+    {
+      "symbol": "CFG",
+      "korean_name": "센트리퓨즈",
+      "change_pct": -4.53,
+      "side": "bottom"
+    },
+    {
+      "symbol": "HOLO",
+      "korean_name": "홀로월드에이아이",
+      "change_pct": -4.43,
+      "side": "bottom"
+    }
+  ]
+}
