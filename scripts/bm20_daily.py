@@ -215,7 +215,8 @@ def get_kimchi() -> tuple:
                 return cached.get("kimchi_pct"), {**cached, "is_cache": True}
             return None, {"is_cache": True, "usdkrw": 1510.0}
 
-    # USD/KRW exchange rate (Yahoo Chart API)
+    # USD/KRW exchange rate: Yahoo Chart API → open.er-api fallback
+    usdkrw = None
     try:
         r = requests.get(
             "https://query1.finance.yahoo.com/v8/finance/chart/USDKRW=X",
@@ -229,8 +230,19 @@ def get_kimchi() -> tuple:
             raise ValueError(f"USDKRW out of range: {usdkrw}")
         log.info("USDKRW=%.2f (Yahoo Chart API)", usdkrw)
     except Exception as e:
-        log.warning("USDKRW fetch failed: %s → 1510 fallback", e)
-        usdkrw = 1510.0
+        log.warning("Yahoo USDKRW failed: %s → trying open.er-api", e)
+
+    if usdkrw is None:
+        try:
+            r = requests.get("https://open.er-api.com/v6/latest/USD", timeout=10)
+            r.raise_for_status()
+            usdkrw = float(r.json()["rates"]["KRW"])
+            if not (900 <= usdkrw <= 2000):
+                raise ValueError(f"USDKRW out of range: {usdkrw}")
+            log.warning("USDKRW=%.2f (open.er-api fallback)", usdkrw)
+        except Exception as e:
+            log.error("All USDKRW sources failed: %s", e)
+            raise RuntimeError("Cannot fetch USDKRW from any source")
 
     kp = ((btc_krw / usdkrw) - btc_usd) / btc_usd * 100
     meta = {

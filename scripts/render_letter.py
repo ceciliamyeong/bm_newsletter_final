@@ -208,7 +208,10 @@ def fetch_premium_data(usdkrw: float | None) -> dict[str, str]:
         km = (bm20.get("kimchi_meta", {}) or {}) if bm20 else {}
         upbit_btc_krw = km.get("btc_krw")
         cg_usd = km.get("btc_usd")
-        fx = usdkrw if (usdkrw and usdkrw > 100) else 1510.0
+        if not usdkrw or usdkrw <= 100:
+            log.warning("Premium: usdkrw missing or invalid")
+            return FB
+        fx = usdkrw
 
         if not upbit_btc_krw or not cg_usd:
             log.warning("Premium: btc_krw/btc_usd missing in bm20_latest.json")
