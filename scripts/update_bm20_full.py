@@ -265,48 +265,20 @@ def append_json_list(path: Path, item: dict, date_key: str = "timestamp"):
 
 
 def main():
-    CMC_API_KEY = config.CMC_API_KEY
     DATA = config.DATA_DIR
 
-    usdkrw, fx_source = get_usdkrw_live()
-
-    # Read total KRW trading volume from existing file
-    latest_vol_path = DATA / "krw_24h_latest.json"
-    krw_total_24h = 0
-    if latest_vol_path.exists():
-        try:
-            with open(latest_vol_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                krw_total_24h = data.get("totals", {}).get("combined_24h", 0)
-                log.info("KRW volume loaded: %s", f"{krw_total_24h:,.0f}")
-        except Exception as e:
-            log.error("File read error: %s", e)
-    else:
-        log.error("krw_24h_latest.json not found")
-
     sentiment = get_fear_and_greed()
-    k_market = get_k_share(CMC_API_KEY, krw_total_24h, usdkrw)
-
-    # ✅ XRP (BM20 히스토리에 넣지 않고 global로 분리)
-    xrp_market = get_xrp_share(CMC_API_KEY, usdkrw)
 
     now_iso = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
-    xrp_market["as_of"] = now_iso
 
     # ---- BM20 히스토리: 날짜 중복 방지 후 저장 ----
     new_entry = {
         "timestamp": now_iso,
         "sentiment": sentiment,
-        "k_market": k_market,
-        "usdkrw": usdkrw,
-        "fx_source": fx_source
     }
     append_json_list(DATA / "bm20_history.json", new_entry, date_key="timestamp")
 
-
-    log.info("K-Share: %s%%", k_market["k_share_percent"])
-
-    log.info("USDKRW=%s (%s)", usdkrw, fx_source)
+    log.info("Sentiment: %s", sentiment)
 
 
 if __name__ == "__main__":
